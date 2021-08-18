@@ -1,7 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { AccountCircle, Mail, Settings, MusicNote, Announcement } from '@material-ui/icons/';
+import {
+  AccountCircle,
+  Mail,
+  Settings,
+  MusicNote,
+  Announcement,
+  People,
+} from '@material-ui/icons/';
 
 import styles from './Navbar.module.css';
 
@@ -40,6 +47,17 @@ const Navbar = () => {
               <Mail style={{ color: '#5181b8' }} />
             </div>
             <div className={styles.navbar__text}>Messenger</div>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/users"
+            activeClassName={styles.navbar__active}
+            className={styles.navbar__item}>
+            <div className={styles.navbar__img}>
+              <People style={{ color: '#5181b8' }} />
+            </div>
+            <div className={styles.navbar__text}>Users</div>
           </NavLink>
         </li>
         <li>

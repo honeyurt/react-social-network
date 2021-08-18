@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Messages from './components/Messenger/Messages';
+import Users from './components/Users/Users';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import NotFound from './pages/NotFound';
@@ -24,6 +25,7 @@ const App = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/news" component={News} />
           <Route exact path="/messages" component={Messages} />
+          <Route exact path="/users/" component={Users} />
           <Route exact path="/music" component={Music} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="*" component={NotFound} />
