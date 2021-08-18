@@ -1,0 +1,30 @@
+.navbar {
+  grid-area: navbar;
+  background-color: #456681;
+  border-radius: 3px;
+}
+
+.navbar__items {
+  margin-top: 15px;
+}
+
+.navbar__item {
+  display: flex;
+  padding-top: 5px;
+  margin-bottom: 10px;
+}
+
+.navbar__item:hover {
+  background-color: #3498db;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.navbar__img {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar__text {
+  color: #fff;
+}

@@ -1,8 +1,18 @@
 import React from 'react';
-import './App.css';
+
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+
+import styles from './App.module.css';
 
 const App = () => {
-  return <div></div>;
+  return (
+    <div className={styles.wrapper}>
+      <Header />
+      <Navbar />
+      <div className={styles.content}></div>
+    </div>
+  );
 };
 
 export default App;
