@@ -13,6 +13,7 @@ export enum UsersActionTypes {
   SET_USERS = 'SET_USERS',
   SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
   SET_USERS_COUNT = 'SET_USERS_COUNT',
+  IS_FETCHING = 'IS_FETCHING',
 }
 
 interface FollowSuccess {
@@ -40,9 +41,15 @@ interface SetUsersCount {
   count: number;
 }
 
+interface IsFetching {
+  type: UsersActionTypes.IS_FETCHING;
+  isFetching: boolean;
+}
+
 export type UsersAction =
   | FollowSuccess
   | UnfollowSuccess
   | SetUsers
   | SetCurrentPage
-  | SetUsersCount;
+  | SetUsersCount
+  | IsFetching;

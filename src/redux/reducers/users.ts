@@ -52,6 +52,11 @@ export const usersReducer = (state = initialState, action: UsersAction): UsersSt
         ...state,
         totalUsersCount: action.count,
       };
+    case UsersActionTypes.IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching,
+      };
     default:
       return state;
   }

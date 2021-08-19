@@ -15,6 +15,10 @@ export const setUsers =
         type: UsersActionTypes.SET_USERS_COUNT,
         count: response.data.totalCount,
       });
+      dispatch({
+        type: UsersActionTypes.IS_FETCHING,
+        isFetching: false,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -23,4 +27,9 @@ export const setUsers =
 export const setCurrentPage = (pageNumber = 1) => ({
   type: UsersActionTypes.SET_CURRENT_PAGE,
   currentPage: pageNumber,
+});
+
+export const fetchingPage = () => ({
+  type: UsersActionTypes.IS_FETCHING,
+  isFetching: true,
 });
