@@ -1,12 +1,37 @@
+.pagination {
+  margin: 10px 0 0 10px;
+  text-align: left;
+}
+
+.pagination span {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.pagination span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: 700;
+  color: #000;
+}
+
+.notSelected {
+  color: rgb(115, 185, 250);
+  font-weight: 500;
+}
+
 .users {
-  margin: 20px 0 20px 0;
+  margin: 10px 0 20px 0;
 }
 
 .user__item {
   display: flex;
   margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(115, 185, 250);
+  padding-top: 10px;
+  border-top: 1px solid rgb(115, 185, 250);
 }
 
 .user__left {
@@ -43,7 +68,7 @@
 
 .user__right nav {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
   color: #216999;
   margin-bottom: 10px;
   margin-top: 5px;

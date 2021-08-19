@@ -42,6 +42,16 @@ export const usersReducer = (state = initialState, action: UsersAction): UsersSt
         ...state,
         users: [...action.users],
       };
+    case UsersActionTypes.SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage,
+      };
+    case UsersActionTypes.SET_USERS_COUNT:
+      return {
+        ...state,
+        totalUsersCount: action.count,
+      };
     default:
       return state;
   }

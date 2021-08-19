@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers';
-import { setUsers } from '../../redux/actions/users';
+import { setUsers, setCurrentPage } from '../../redux/actions/users';
 
 import styles from './Users.module.css';
 
@@ -9,29 +9,56 @@ import userWithoutPhoto from '../../assets/img/userWithoutPhoto.png';
 
 const Users = () => {
   const dispatch = useDispatch();
-  const { users } = useSelector((state: RootState) => state.users);
-  console.log(users);
+  const { users, totalUsersCount, pageSize, currentPage } = useSelector(
+    (state: RootState) => state.users,
+  );
+
+  const pagesCount = Math.ceil(totalUsersCount / pageSize) / 100; // Divided by 100 because we get 1k+ pages and i don't know how to adaptive this now
+  const pages: number[] = [];
+
+  for (let i = 1; i < pagesCount; i++) {
+    pages.push(i);
+  }
 
   React.useEffect(() => {
-    dispatch(setUsers());
-  }, [dispatch]);
+    dispatch(setUsers(currentPage));
+  }, [dispatch, currentPage]);
+
+  const onPageClickHandler = (currentPage = 1) => {
+    dispatch(setCurrentPage(currentPage));
+  };
 
   return (
-    <div className={styles.users}>
-      {users &&
-        users.map((user) => (
-          <div key={user.id} className={styles.user__item}>
-            <div className={styles.user__left}>
-              <img src={user.photos.small ? user.photos.small : userWithoutPhoto} alt="UserPhoto" />
-              <button>Follow</button>
-            </div>
-            <div className={styles.user__right}>
-              <nav>{user.name}</nav>
-              <p>{user.status ? user.status : 'No status.'}</p>
-            </div>
-          </div>
+    <>
+      <div className={styles.pagination}>
+        {pages.map((page) => (
+          <span
+            key={page}
+            className={currentPage === page ? styles.selected : styles.notSelected}
+            onClick={onPageClickHandler.bind(null, page)}>
+            {page}
+          </span>
         ))}
-    </div>
+      </div>
+      <div className={styles.users}>
+        {users &&
+          users.map((user) => (
+            <div key={user.id} className={styles.user__item}>
+              <div className={styles.user__left}>
+                <img
+                  src={user.photos.small ? user.photos.small : userWithoutPhoto}
+                  alt="UserPhoto"
+                />
+                <button>Follow</button>
+              </div>
+              <div className={styles.user__right}>
+                <nav>{user.name}</nav>
+                <p>{user.status ? user.status : 'No status.'}</p>
+              </div>
+            </div>
+          ))}
+      </div>
+    </>
   );
 };
 
