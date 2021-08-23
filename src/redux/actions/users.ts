@@ -19,8 +19,8 @@ export const setUsers =
         type: UsersActionTypes.IS_FETCHING,
         isFetching: false,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown) {
+      if (error instanceof Error) console.log(error.message);
     }
   };
 
