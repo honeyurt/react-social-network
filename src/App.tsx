@@ -22,7 +22,7 @@ const App = () => {
       <div className={styles.content}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile/:userId?" component={Profile} />
           <Route exact path="/news" component={News} />
           <Route exact path="/messages" component={Messages} />
           <Route exact path="/users/" component={Users} />

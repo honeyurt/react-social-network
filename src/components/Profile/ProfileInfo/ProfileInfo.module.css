@@ -1,0 +1,54 @@
+.profile__top {
+  display: flex;
+  font-size: 16px;
+}
+
+.profile__top img {
+  width: 250px;
+  height: 250px;
+}
+
+.profile__info {
+  margin-left: 20%;
+}
+
+.profile__name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.profile__status {
+  font-style: italic;
+  color: rgb(122, 122, 122);
+}
+
+.profile__job {
+  margin-top: 15px;
+}
+
+.profile__job_desc {
+  margin-top: 5px;
+}
+
+.profile__job span,
+.profile__job_desc span {
+  text-decoration: underline;
+}
+
+.profile__contacts {
+  margin-top: 15px;
+}
+
+.profile__contacts a:hover {
+  opacity: 0.5;
+}
+
+.profile__contacts ul {
+  display: flex;
+  justify-content: center;
+}
+
+.profile__contacts ul li {
+  margin: 0 5px;
+}

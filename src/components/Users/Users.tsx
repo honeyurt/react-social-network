@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { setUsers, setCurrentPage, fetchingPage } from '../../redux/actions/users';
@@ -47,10 +48,12 @@ const Users = () => {
           ? users.map((user) => (
               <div key={user.id} className={styles.user__item}>
                 <div className={styles.user__left}>
-                  <img
-                    src={user.photos.small ? user.photos.small : userWithoutPhoto}
-                    alt="UserPhoto"
-                  />
+                  <Link to={`/profile/${user.id}`}>
+                    <img
+                      src={user.photos.small ? user.photos.small : userWithoutPhoto}
+                      alt="UserPhoto"
+                    />
+                  </Link>
                   <button>Follow</button>
                 </div>
                 <div className={styles.user__right}>

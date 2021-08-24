@@ -1,0 +1,40 @@
+.profile__bottom {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.profile__bottom h2 {
+  color: rgb(100, 99, 99);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 80px;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(216, 216, 216);
+  resize: none;
+}
+
+button {
+  margin-top: 5px;
+  float: right;
+  width: 80px;
+  height: 30px;
+  background-color: rgb(116, 188, 216);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+  transition: all 0.3s ease-out;
+}

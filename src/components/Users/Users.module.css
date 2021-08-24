@@ -46,6 +46,10 @@
   border-radius: 50%;
 }
 
+.user__left img:hover {
+  opacity: 0.5;
+}
+
 .user__left button {
   color: #fff;
   font-weight: 700;
