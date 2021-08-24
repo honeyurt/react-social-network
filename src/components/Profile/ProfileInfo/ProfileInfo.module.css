@@ -1,15 +1,13 @@
 .profile__top {
   display: flex;
+  justify-content: space-around;
   font-size: 16px;
+  margin: 0 15px;
 }
 
 .profile__top img {
   width: 250px;
   height: 250px;
-}
-
-.profile__info {
-  margin-left: 20%;
 }
 
 .profile__name {
