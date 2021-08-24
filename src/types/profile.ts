@@ -18,7 +18,7 @@ type ProfileContactsType = {
   mainLink: string;
 };
 
-type ProfilePhotosType = {
+export type ProfilePhotosType = {
   small: string;
   large: string;
 };

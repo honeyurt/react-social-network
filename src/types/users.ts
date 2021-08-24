@@ -1,5 +1,15 @@
+import { ProfilePhotosType } from './profile';
+
+type UsersType = {
+  id: number;
+  name: string;
+  status: string;
+  photos: ProfilePhotosType;
+  followed: boolean;
+};
+
 export interface UsersState {
-  users: any[];
+  users: Array<UsersType>;
   pageSize: number;
   totalUsersCount: number;
   currentPage: number;
