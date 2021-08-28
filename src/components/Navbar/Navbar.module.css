@@ -24,6 +24,12 @@
   padding-right: 20px;
 }
 
+.navbar__img svg {
+  width: 24px;
+  height: 24px;
+  color: #5181b8;
+}
+
 .navbar__text {
   color: #fff;
   padding-right: 20px;
