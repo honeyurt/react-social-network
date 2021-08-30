@@ -9,3 +9,4 @@ API - [click](https://social-network.samuraijs.com/docs#samuraijs_social_network
 - Redux / Redux Thunk
 - React Router
 - Axios
+- React Hook Form
