@@ -1,10 +1,32 @@
 import React from 'react';
+import { useHistory } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogout } from '../../redux/actions/auth';
+import { RootState } from '../../redux/reducers';
 import { Link } from 'react-router-dom';
+import { getAuth } from '../../redux/actions/auth';
 
 import logoHeader from '../../assets/img/header-logo.png';
 import styles from './Header.module.css';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const { isAuth } = useSelector((state: RootState) => state.auth);
+  const history = useHistory();
+
+  const onLogoutHandler = () => {
+    dispatch(setLogout());
+    history.push('/login');
+  };
+
+  const onLoginHandler = () => {
+    history.push('/login');
+  };
+
+  React.useEffect(() => {
+    dispatch(getAuth());
+  }, [dispatch]);
+
   return (
     <header className={styles.header}>
       <div className={styles.header__logo}>
@@ -12,6 +34,15 @@ const Header = () => {
           <img src={logoHeader} alt="Logo" />
         </Link>
       </div>
+      {isAuth ? (
+        <p className={styles.header__link} onClick={onLogoutHandler}>
+          Logout
+        </p>
+      ) : (
+        <p className={styles.header__link} onClick={onLoginHandler}>
+          Login
+        </p>
+      )}
     </header>
   );
 };

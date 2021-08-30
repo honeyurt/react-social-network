@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch } from 'redux';
 import { instance } from '../../API/api';
 import { ProfileAction, ProfileActionTypes } from '../../types/profile';
 

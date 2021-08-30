@@ -12,12 +12,16 @@ import ProfilePageLoading from '../../../UI/ProfilePageLoading';
 const ProfileInfo = () => {
   const dispatch = useDispatch();
   const { profile, status } = useSelector((state: RootState) => state.profile);
-  const { userId } = useParams<{ userId: string }>();
+  const { userId } = useSelector((state: RootState) => state.auth);
+  const id = String(userId);
+
+  let profileId = useParams<{ userId: string }>();
+  if (profileId.userId === undefined) profileId.userId = id;
 
   React.useEffect(() => {
-    dispatch(getUserProfile(userId));
-    dispatch(getUserStatus(userId));
-  }, [dispatch, userId]);
+    dispatch(getUserProfile(profileId.userId));
+    dispatch(getUserStatus(profileId.userId));
+  }, [dispatch, profileId.userId]);
 
   if (!profile)
     return (

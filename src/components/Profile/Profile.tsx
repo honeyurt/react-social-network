@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AuthRedirect from '../../hoc/authRedirect';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Posts from './Posts/Posts';
 
@@ -14,4 +14,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default AuthRedirect(Profile);
