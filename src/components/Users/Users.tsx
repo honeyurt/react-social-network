@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers';
-import { setUsers, setCurrentPage, fetchingPage } from '../../redux/actions/users';
+import {
+  setUsers,
+  setCurrentPage,
+  fetchingPage,
+  setFollow,
+  setUnfollow,
+  toggleFollowingProgress,
+} from '../../redux/actions/users';
 import UsersPageLoading from '../../UI/UsersPageLoading';
 
 import styles from './Users.module.css';
@@ -11,9 +18,8 @@ import userWithoutPhoto from '../../assets/img/userWithoutPhoto.png';
 
 const Users = () => {
   const dispatch = useDispatch();
-  const { users, totalUsersCount, pageSize, currentPage, isFetching } = useSelector(
-    (state: RootState) => state.users,
-  );
+  const { users, totalUsersCount, pageSize, currentPage, isFetching, followingProgress } =
+    useSelector((state: RootState) => state.users);
 
   const pagesCount = Math.ceil(totalUsersCount / pageSize) / 100; // Divided by 100 because we get 1k+ pages and i don't know how to adaptive this now
   const pages: number[] = [];
@@ -29,6 +35,16 @@ const Users = () => {
   const onPageClickHandler = (currentPage = 1) => {
     dispatch(fetchingPage());
     dispatch(setCurrentPage(currentPage));
+  };
+
+  const onFollowHandler = (userId: number) => {
+    dispatch(setFollow(userId));
+    dispatch(toggleFollowingProgress(userId, true));
+  };
+
+  const onUnfollowHandler = (userId: number) => {
+    dispatch(setUnfollow(userId));
+    dispatch(toggleFollowingProgress(userId, true));
   };
 
   return (
@@ -54,7 +70,19 @@ const Users = () => {
                       alt="UserPhoto"
                     />
                   </Link>
-                  <button>Follow</button>
+                  {user.followed ? (
+                    <button
+                      disabled={followingProgress.some((id) => id === user.id)}
+                      onClick={onUnfollowHandler.bind(null, user.id)}>
+                      Unfollow
+                    </button>
+                  ) : (
+                    <button
+                      disabled={followingProgress.some((id) => id === user.id)}
+                      onClick={onFollowHandler.bind(null, user.id)}>
+                      Follow
+                    </button>
+                  )}
                 </div>
                 <div className={styles.user__right}>
                   <nav>{user.name}</nav>

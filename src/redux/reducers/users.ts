@@ -6,7 +6,7 @@ const initialState: UsersState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
-  usersFollowing: [],
+  followingProgress: [],
 };
 
 export const usersReducer = (state = initialState, action: UsersAction): UsersState => {
@@ -56,6 +56,13 @@ export const usersReducer = (state = initialState, action: UsersAction): UsersSt
       return {
         ...state,
         isFetching: action.isFetching,
+      };
+    case UsersActionTypes.TOGGLE_FOLLOWING_PROGRESS:
+      return {
+        ...state,
+        followingProgress: action.isFetching
+          ? [...state.followingProgress, action.userId]
+          : state.followingProgress.filter((id) => id !== action.userId),
       };
     default:
       return state;

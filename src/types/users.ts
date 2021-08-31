@@ -14,7 +14,7 @@ export interface UsersState {
   totalUsersCount: number;
   currentPage: number;
   isFetching: boolean;
-  usersFollowing: any[];
+  followingProgress: Array<number | boolean>;
 }
 
 export enum UsersActionTypes {
@@ -24,6 +24,7 @@ export enum UsersActionTypes {
   SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
   SET_USERS_COUNT = 'SET_USERS_COUNT',
   IS_FETCHING = 'IS_FETCHING',
+  TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE_FOLLOWING_PROGRESS',
 }
 
 interface FollowSuccess {
@@ -56,10 +57,17 @@ interface IsFetching {
   isFetching: boolean;
 }
 
+interface ToggleFollowingProgress {
+  type: UsersActionTypes.TOGGLE_FOLLOWING_PROGRESS;
+  userId: number;
+  isFetching: boolean;
+}
+
 export type UsersAction =
   | FollowSuccess
   | UnfollowSuccess
   | SetUsers
   | SetCurrentPage
   | SetUsersCount
-  | IsFetching;
+  | IsFetching
+  | ToggleFollowingProgress;

@@ -24,6 +24,40 @@ export const setUsers =
     }
   };
 
+export const setFollow = (userId: number) => async (dispatch: Dispatch<UsersAction>) => {
+  try {
+    await instance.post(`follow/${userId}`);
+    dispatch({
+      type: UsersActionTypes.FOLLOW,
+      userId,
+    });
+    dispatch({
+      type: UsersActionTypes.TOGGLE_FOLLOWING_PROGRESS,
+      userId,
+      isFetching: false,
+    });
+  } catch (error: unknown) {
+    if (error instanceof Error) console.log(error.message);
+  }
+};
+
+export const setUnfollow = (userId: number) => async (dispatch: Dispatch<UsersAction>) => {
+  try {
+    await instance.delete(`follow/${userId}`);
+    dispatch({
+      type: UsersActionTypes.UNFOLLOW,
+      userId,
+    });
+    dispatch({
+      type: UsersActionTypes.TOGGLE_FOLLOWING_PROGRESS,
+      userId,
+      isFetching: false,
+    });
+  } catch (error: unknown) {
+    if (error instanceof Error) console.log(error.message);
+  }
+};
+
 export const setCurrentPage = (pageNumber = 1) => ({
   type: UsersActionTypes.SET_CURRENT_PAGE,
   currentPage: pageNumber,
@@ -32,4 +66,10 @@ export const setCurrentPage = (pageNumber = 1) => ({
 export const fetchingPage = () => ({
   type: UsersActionTypes.IS_FETCHING,
   isFetching: true,
+});
+
+export const toggleFollowingProgress = (userId: number, isFetching: boolean) => ({
+  type: UsersActionTypes.TOGGLE_FOLLOWING_PROGRESS,
+  userId,
+  isFetching,
 });
