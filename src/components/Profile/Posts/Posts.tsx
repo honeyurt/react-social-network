@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../../UI/Button/Button';
 
 import styles from './Posts.module.css';
 
@@ -12,7 +13,7 @@ const Posts = () => {
       <h2>Posts</h2>
       <form method="submit" id="posts" onSubmit={onSubmitHandler}>
         <textarea placeholder="your news.." form="posts"></textarea>
-        <button form="posts">Add post</button>
+        <Button form="posts">Add post</Button>
       </form>
     </div>
   );

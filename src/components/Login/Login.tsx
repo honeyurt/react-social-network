@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, IFormInputs } from '../../utils/schemas/loginSchema';
 import { useHistory } from 'react-router';
 
+import Button from '../../UI/Button/Button';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -44,9 +45,9 @@ const Login = () => {
         </p>
       </div>
       <div className={styles.buttons}>
-        <button onClick={formHandler}>Sign In</button>
+        <Button onClick={formHandler}>Sign In</Button>
         <a href="https://social-network.samuraijs.com/signUp">
-          <button>Sing Up</button>
+          <Button>Sing Up</Button>
         </a>
       </div>
       {formVisible && (
@@ -66,7 +67,7 @@ const Login = () => {
                 <input {...form.register('checkbox')} type="checkbox" id="rememberMe" />
               </div>
               <div className={styles.form__right}>
-                <button type="submit">Sing In</button>
+                <Button type="submit">Sing In</Button>
               </div>
             </div>
           </form>

@@ -59,6 +59,7 @@
 .form__bottom {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .form__left {

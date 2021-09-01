@@ -10,10 +10,10 @@ import {
   setUnfollow,
   toggleFollowingProgress,
 } from '../../redux/actions/users';
+import Button from '../../UI/Button/Button';
 import UsersPageLoading from '../../UI/UsersPageLoading';
 
 import styles from './Users.module.css';
-
 import userWithoutPhoto from '../../assets/img/userWithoutPhoto.png';
 
 const Users = () => {
@@ -71,17 +71,17 @@ const Users = () => {
                     />
                   </Link>
                   {user.followed ? (
-                    <button
+                    <Button
                       disabled={followingProgress.some((id) => id === user.id)}
                       onClick={onUnfollowHandler.bind(null, user.id)}>
                       Unfollow
-                    </button>
+                    </Button>
                   ) : (
-                    <button
+                    <Button
                       disabled={followingProgress.some((id) => id === user.id)}
                       onClick={onFollowHandler.bind(null, user.id)}>
                       Follow
-                    </button>
+                    </Button>
                   )}
                 </div>
                 <div className={styles.user__right}>
