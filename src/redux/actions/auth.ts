@@ -16,7 +16,7 @@ export const getAuth = () => async (dispatch: Dispatch<AuthAction>) => {
   try {
     const response = await instance.get('auth/me');
     const { id, login, email } = response.data.data;
-    dispatch(setAuth(id, login, email, true));
+    if (response.data.resultCode === 0) dispatch(setAuth(id, login, email, true));
   } catch (error: unknown) {
     if (error instanceof Error) console.log(error.message);
   }
