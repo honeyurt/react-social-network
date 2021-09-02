@@ -3,6 +3,7 @@ export interface AuthState {
   login: string | null;
   email: string | null;
   isAuth: boolean;
+  error?: string;
 }
 
 export enum AuthActionTypes {

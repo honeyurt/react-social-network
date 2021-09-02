@@ -7,9 +7,10 @@ export const setAuth = (
   login: string | null,
   email: string | null,
   isAuth: boolean,
+  error?: string,
 ) => ({
   type: AuthActionTypes.AUTH,
-  payload: { userId, login, email, isAuth },
+  payload: { userId, login, email, isAuth, error },
 });
 
 export const getAuth = () => async (dispatch: Dispatch<AuthAction>) => {
@@ -23,14 +24,18 @@ export const getAuth = () => async (dispatch: Dispatch<AuthAction>) => {
 };
 
 export const setLogin =
-  (email: string, password: string, rememberMe: boolean) => async (dispatch: Dispatch<any>) => {
+  (email: string, password: string, rememberMe: boolean) =>
+  async (dispatch: Dispatch<AuthAction | any>) => {
     try {
       const response = await instance.post('auth/login', {
         email,
         password,
         rememberMe,
       });
+      const errorText = response.data.messages[0];
+
       if (response.data.resultCode === 0) dispatch(getAuth());
+      else dispatch(setAuth(null, null, null, false, errorText));
     } catch (error: unknown) {
       if (error instanceof Error) console.log(error.message);
     }

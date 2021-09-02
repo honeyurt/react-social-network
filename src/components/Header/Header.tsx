@@ -15,7 +15,6 @@ const Header: React.FC = (props) => {
 
   const onLogoutHandler = () => {
     dispatch(setLogout());
-    history.push('/login');
   };
 
   const onLoginHandler = () => {

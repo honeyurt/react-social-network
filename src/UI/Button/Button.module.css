@@ -3,7 +3,7 @@
   background: rgb(151, 203, 245);
   font-weight: 700;
   font-size: 14px;
-  border: none;
+  border: 1px solid rgb(151, 203, 245);
   cursor: pointer;
   border-radius: 3px;
   padding: 5px 15px;
@@ -12,4 +12,11 @@
 .button:hover {
   opacity: 0.7;
   transition: all 0.3s ease-out;
+}
+
+.button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
 }
