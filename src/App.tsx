@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './redux/reducers';
+import { init } from './redux/actions/init';
 
 import Home from './pages/Home';
 import Header from './components/Header/Header';
@@ -16,6 +19,14 @@ import NotFound from './pages/NotFound';
 import styles from './App.module.css';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const { initialized } = useSelector((state: RootState) => state.init);
+
+  React.useEffect(() => {
+    dispatch(init());
+  }, [dispatch]);
+
+  if (!initialized) return <div>Loading..</div>;
   return (
     <div className={styles.wrapper}>
       <Header />
