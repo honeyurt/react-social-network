@@ -1,0 +1,24 @@
+.selected {
+  font-weight: 700;
+  color: #000;
+}
+
+.notSelected {
+  color: rgb(115, 185, 250);
+  font-weight: 500;
+}
+
+.pagination {
+  margin: 10px 0 0 10px;
+  text-align: left;
+}
+
+.pagination span {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.pagination span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

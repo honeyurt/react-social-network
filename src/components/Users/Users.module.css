@@ -1,28 +1,3 @@
-.pagination {
-  margin: 10px 0 0 10px;
-  text-align: left;
-}
-
-.pagination span {
-  font-size: 18px;
-  margin-right: 5px;
-}
-
-.pagination span:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.selected {
-  font-weight: 700;
-  color: #000;
-}
-
-.notSelected {
-  color: rgb(115, 185, 250);
-  font-weight: 500;
-}
-
 .users {
   margin: 10px 0 20px 0;
 }
@@ -32,54 +7,4 @@
   margin-bottom: 10px;
   padding-top: 10px;
   border-top: 1px solid rgb(115, 185, 250);
-}
-
-.user__left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 30px;
-  margin-left: 10px;
-}
-
-.user__left img {
-  border-radius: 50%;
-}
-
-.user__left img:hover {
-  opacity: 0.5;
-}
-
-.user__left button {
-  color: #fff;
-  font-weight: 700;
-  background-color: rgb(151, 203, 245);
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
-  padding: 5px 10px;
-}
-
-.user__left button:hover {
-  opacity: 0.7;
-  transition: all 0.2s ease-out;
-}
-
-.user__right {
-  text-align: left;
-}
-
-.user__right nav {
-  font-size: 16px;
-  font-weight: 700;
-  color: #216999;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-
-.user__right p {
-  color: #216999;
-  font-weight: 400;
-  font-size: 14px;
 }

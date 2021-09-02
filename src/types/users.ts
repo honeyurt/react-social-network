@@ -1,6 +1,6 @@
 import { ProfilePhotosType } from './profile';
 
-type UsersType = {
+export type UsersType = {
   id: number;
   name: string;
   status: string;
@@ -14,7 +14,7 @@ export interface UsersState {
   totalUsersCount: number;
   currentPage: number;
   isFetching: boolean;
-  followingProgress: Array<number | boolean>;
+  followingProgress: Array<number>;
 }
 
 export enum UsersActionTypes {
