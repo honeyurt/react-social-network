@@ -2,6 +2,7 @@
   grid-area: navbar;
   background-color: #456681;
   border-radius: 3px;
+  height: 583px;
 }
 
 .navbar__items {

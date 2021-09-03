@@ -24,7 +24,7 @@
 .form {
   margin: 0 auto;
   text-align: left;
-  width: 340px;
+  width: 540px;
   margin-top: 50px;
   margin-bottom: 50px;
   border: 2px solid rgb(154 215 220);
@@ -36,6 +36,7 @@
 .form p {
   color: red;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .form label {

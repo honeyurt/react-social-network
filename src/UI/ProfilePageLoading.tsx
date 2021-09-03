@@ -15,9 +15,10 @@ const ProfilePageLoading: React.FC = (props) => (
     <rect x="405" y="19" rx="4" ry="4" width="109" height="16" />
     <rect x="378" y="108" rx="4" ry="4" width="157" height="16" />
     <rect x="424" y="43" rx="4" ry="4" width="72" height="16" />
-    <rect x="398" y="141" rx="4" ry="4" width="31" height="27" />
-    <rect x="440" y="141" rx="5" ry="5" width="31" height="27" />
-    <rect x="484" y="141" rx="3" ry="3" width="31" height="27" />
+    <rect x="378" y="141" rx="4" ry="4" width="31" height="27" />
+    <rect x="420" y="141" rx="4" ry="4" width="31" height="27" />
+    <rect x="462" y="141" rx="4" ry="4" width="31" height="27" />
+    <rect x="504" y="141" rx="4" ry="4" width="31" height="27" />
     <rect x="377" y="82" rx="4" ry="4" width="157" height="16" />
   </ContentLoader>
 );

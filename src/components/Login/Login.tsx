@@ -55,11 +55,16 @@ const Login = () => {
         <div className={styles.form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <label htmlFor="ail">Email</label>
-            <input {...form.register('email')} type="text" id="email" />
+            <input {...form.register('email')} type="text" id="email" placeholder="elon@musk.com" />
             <p>{form.formState.errors.email?.message}</p>
 
             <label htmlFor="password">Password</label>
-            <input {...form.register('password')} type="password" id="password" />
+            <input
+              {...form.register('password')}
+              type="password"
+              id="password"
+              placeholder="********"
+            />
             <p>{form.formState.errors.password?.message}</p>
 
             <p className={styles.error_message}>{error}</p>
@@ -70,7 +75,9 @@ const Login = () => {
                 <input {...form.register('checkbox')} type="checkbox" id="rememberMe" />
               </div>
               <div className={styles.form__right}>
-                <Button type="submit">Sing In</Button>
+                <Button type="submit" disabled={!form.formState.isValid}>
+                  Sing In
+                </Button>
               </div>
             </div>
           </form>

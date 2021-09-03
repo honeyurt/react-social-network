@@ -1,0 +1,10 @@
+.footer {
+  grid-area: footer;
+
+  text-align: center;
+}
+
+.footer a {
+  color: rgba(107, 114, 128);
+  font-size: 0.875rem;
+}

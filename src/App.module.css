@@ -17,7 +17,8 @@
 
   grid-template-areas:
     'header header'
-    'navbar content';
+    'navbar content'
+    'footer footer';
 
   grid-template-rows: 50px 1fr;
   grid-template-columns: 2fr 10fr;
@@ -30,4 +31,8 @@
   margin-left: 15px;
   border-radius: 3px;
   text-align: center;
+}
+
+.wrapper h1 {
+  margin: 15px 0 30px 0;
 }
