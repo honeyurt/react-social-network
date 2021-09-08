@@ -5,7 +5,9 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <a href="https://github.com/honeyurt">Created by Alex Smirnov. Made with ❤ in Russia.</a>
+      <a href="https://github.com/honeyurt">
+        Created by Alex Smirnov. Made with <span>❤</span> in Russia.
+      </a>
     </footer>
   );
 };

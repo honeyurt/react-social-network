@@ -20,6 +20,7 @@ const Login = () => {
     mode: 'onChange',
     resolver: yupResolver(LoginSchema),
   });
+
   const onSubmit = (data: IFormInputs) => {
     dispatch(setLogin(data.email, data.password, data.checkbox));
   };
@@ -54,7 +55,7 @@ const Login = () => {
       {formVisible && (
         <div className={styles.form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <label htmlFor="ail">Email</label>
+            <label htmlFor="email">Email</label>
             <input {...form.register('email')} type="text" id="email" placeholder="elon@musk.com" />
             <p>{form.formState.errors.email?.message}</p>
 

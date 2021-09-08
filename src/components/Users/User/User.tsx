@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { UsersType } from '../../../types/users';
 import Button from '../../../UI/Button/Button';
-import userWithoutPhoto from '../../../assets/img/userWithoutPhoto.png';
+import userProfilePagePhoto from '../../../assets/img/userProfilePagePhoto.jpg';
 
 import styles from './User.module.css';
 
@@ -18,7 +18,7 @@ const User: React.FC<Props> = ({ user, followingProgress, follow, unfollow }) =>
     <div key={user.id} className={styles.user__item}>
       <div className={styles.user__left}>
         <Link to={`/profile/${user.id}`}>
-          <img src={user.photos.small ? user.photos.small : userWithoutPhoto} alt="UserPhoto" />
+          <img src={user.photos.small ? user.photos.small : userProfilePagePhoto} alt="UserPhoto" />
         </Link>
         {user.followed ? (
           <Button

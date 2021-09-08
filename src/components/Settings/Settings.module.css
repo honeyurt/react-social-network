@@ -108,3 +108,10 @@
   background: rgb(140 204 169);
   border: none;
 }
+
+.settings__saved {
+  text-align: center;
+  margin-top: 10px;
+  color: #27bd27;
+  font-weight: 800;
+}
