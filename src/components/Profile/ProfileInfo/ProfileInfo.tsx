@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
 import { getUserProfile, getUserStatus } from '../../../redux/actions/profile';
 
-import styles from './ProfileInfo.module.css';
-
-import userProfilePagePhoto from '../../../assets/img/userProfilePagePhoto.jpg';
 import ProfilePageLoading from '../../../UI/ProfilePageLoading';
+import userProfilePagePhoto from '../../../assets/img/userProfilePagePhoto.jpg';
+
+import styles from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
   const dispatch = useDispatch();
@@ -32,19 +32,19 @@ const ProfileInfo = () => {
   return (
     <div className={styles.profile__top}>
       <div className={styles.profile__image}>
-        <img
-          src={profile.photos.large ? profile.photos.large : userProfilePagePhoto}
-          alt="ProfilePhoto"
-        />
+        <img src={profile.photos.large || userProfilePagePhoto} alt="ProfilePhoto" />
       </div>
       <div className={styles.profile__info}>
         <div className={styles.profile__name}>{profile.fullName}</div>
         <div className={styles.profile__status}>{status ? `Status: ${status}` : 'No status.'}</div>
+        <div className={styles.profile__about}>
+          {profile.aboutMe ? `About Me: ${profile.aboutMe}` : 'About Me: No.'}
+        </div>
         <div className={styles.profile__job}>
           Looking for a job: <span>{profile.lookingForAJob ? 'Yes.' : 'No.'}</span>
         </div>
         <div className={styles.profile__job_desc}>
-          Description:{' '}
+          My skills:{' '}
           <span>
             {profile.lookingForAJobDescription ? profile.lookingForAJobDescription : 'No.'}
           </span>

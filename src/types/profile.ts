@@ -1,8 +1,9 @@
-type ProfileType = {
+export type ProfileType = {
   userId: number;
   lookingForAJob: boolean;
   lookingForAJobDescription: string;
   fullName: string;
+  aboutMe: string;
   contacts: ProfileContactsType;
   photos: ProfilePhotosType;
 };
@@ -19,8 +20,8 @@ type ProfileContactsType = {
 };
 
 export type ProfilePhotosType = {
-  small: string;
-  large: string;
+  small: string | null;
+  large: string | null;
 };
 
 export interface ProfileState {
@@ -32,6 +33,7 @@ export interface ProfileState {
 export enum ProfileActionTypes {
   SET_USER_PROFILE = 'SET_USER_PROFILE',
   SET_STATUS = 'SET_STATUS',
+  SAVE_PHOTO = 'SAVE_PHOTO',
 }
 
 interface SetUserProfile {
@@ -44,4 +46,9 @@ interface SetUserStatus {
   status: string;
 }
 
-export type ProfileAction = SetUserProfile | SetUserStatus;
+interface SavePhoto {
+  type: ProfileActionTypes.SAVE_PHOTO;
+  photos: ProfilePhotosType;
+}
+
+export type ProfileAction = SetUserProfile | SetUserStatus | SavePhoto;

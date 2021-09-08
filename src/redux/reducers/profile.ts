@@ -1,4 +1,4 @@
-import { ProfileState, ProfileActionTypes, ProfileAction } from '../../types/profile';
+import { ProfileState, ProfileActionTypes, ProfileAction, ProfileType } from '../../types/profile';
 
 const initialState: ProfileState = {
   posts: [],
@@ -17,6 +17,11 @@ export const profileReducer = (state = initialState, action: ProfileAction): Pro
       return {
         ...state,
         status: action.status,
+      };
+    case ProfileActionTypes.SAVE_PHOTO:
+      return {
+        ...state,
+        profile: { ...state.profile, photos: action.photos } as ProfileType,
       };
     default:
       return state;
