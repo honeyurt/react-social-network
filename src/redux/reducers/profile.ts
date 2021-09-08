@@ -23,6 +23,16 @@ export const profileReducer = (state = initialState, action: ProfileAction): Pro
         ...state,
         profile: { ...state.profile, photos: action.photos } as ProfileType,
       };
+    case ProfileActionTypes.ADD_POST:
+      return {
+        ...state,
+        posts: [...state.posts, { id: action.posts.id, text: action.posts.text }],
+      };
+    case ProfileActionTypes.DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== action.posts.id),
+      };
     default:
       return state;
   }

@@ -24,8 +24,13 @@ export type ProfilePhotosType = {
   large: string | null;
 };
 
+type ProfilePosts = {
+  id: number;
+  text: string;
+};
+
 export interface ProfileState {
-  posts: any[];
+  posts: Array<ProfilePosts>;
   profile: ProfileType | null;
   status: string;
 }
@@ -34,6 +39,8 @@ export enum ProfileActionTypes {
   SET_USER_PROFILE = 'SET_USER_PROFILE',
   SET_STATUS = 'SET_STATUS',
   SAVE_PHOTO = 'SAVE_PHOTO',
+  ADD_POST = 'ADD_POST',
+  DELETE_POST = 'DELETE_POST',
 }
 
 interface SetUserProfile {
@@ -51,4 +58,14 @@ interface SavePhoto {
   photos: ProfilePhotosType;
 }
 
-export type ProfileAction = SetUserProfile | SetUserStatus | SavePhoto;
+interface AddPost {
+  type: ProfileActionTypes.ADD_POST;
+  posts: ProfilePosts;
+}
+
+interface DeletePost {
+  type: ProfileActionTypes.DELETE_POST;
+  posts: ProfilePosts;
+}
+
+export type ProfileAction = SetUserProfile | SetUserStatus | SavePhoto | AddPost | DeletePost;

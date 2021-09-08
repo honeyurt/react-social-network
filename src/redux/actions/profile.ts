@@ -66,3 +66,13 @@ export const uploadPhoto = (file: File) => async (dispatch: Dispatch<ProfileActi
     if (error instanceof Error) console.log(error.message);
   }
 };
+
+export const addPost = (id: number, text: string) => ({
+  type: ProfileActionTypes.ADD_POST,
+  posts: { id, text },
+});
+
+export const deletePost = (id: number) => ({
+  type: ProfileActionTypes.DELETE_POST,
+  posts: { id },
+});

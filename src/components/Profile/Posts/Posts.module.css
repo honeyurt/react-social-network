@@ -25,3 +25,64 @@ textarea {
   margin-top: 5px;
   float: right;
 }
+
+.profile__posts {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.profile__post {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post__image {
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  background: #3498db;
+  margin-right: 30px;
+}
+
+.post__text {
+  max-width: 905px;
+  word-wrap: break-word;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.post__delete {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  opacity: 0.3;
+}
+
+.post__delete:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.post__delete:before,
+.post__delete:after {
+  position: absolute;
+  left: 15px;
+  content: '';
+  height: 15px;
+  width: 2px;
+  background-color: #333;
+}
+
+.post__delete:before {
+  transform: rotate(45deg);
+}
+
+.post__delete:after {
+  transform: rotate(-45deg);
+}
