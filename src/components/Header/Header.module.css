@@ -13,12 +13,14 @@
 }
 
 .header__link {
-  margin-right: 20px;
-  cursor: pointer;
-  font-weight: 600;
+  display: flex;
   color: lightblue;
+  margin-right: 20px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.header__link:hover {
-  text-decoration: underline;
+.header__link nav {
+  margin-right: 15px;
+  cursor: auto;
 }
