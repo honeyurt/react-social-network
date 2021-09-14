@@ -12,7 +12,7 @@ import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Messages from './components/Messenger/Messages';
 import Users from './components/Users/Users';
-import Music from './components/Music/Music';
+import Video from './components/Video/Video';
 import Settings from './components/Settings/Settings';
 import Login from './components/Login/Login';
 import NotFound from './pages/NotFound';
@@ -39,7 +39,7 @@ const App = () => {
           <Route exact path="/news" component={News} />
           <Route exact path="/messages" component={Messages} />
           <Route exact path="/users/" component={Users} />
-          <Route exact path="/music" component={Music} />
+          <Route exact path="/video" component={Video} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/login" component={Login} />
           <Route exact path="*" component={NotFound} />

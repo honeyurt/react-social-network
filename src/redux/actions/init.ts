@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch } from 'redux';
 import { InitActionTypes } from '../../types/init';
 import { getAuth } from './auth';
 
