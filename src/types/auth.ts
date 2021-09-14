@@ -4,6 +4,7 @@ export interface AuthState {
   email: string | null;
   isAuth: boolean;
   error?: string;
+  captcha?: string;
 }
 
 export enum AuthActionTypes {

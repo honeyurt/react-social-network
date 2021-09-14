@@ -12,7 +12,7 @@ import styles from './Login.module.css';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { isAuth, error } = useSelector((state: RootState) => state.auth);
+  const { isAuth, error, captcha } = useSelector((state: RootState) => state.auth);
 
   const [formVisible, setFormVisible] = React.useState<boolean>(false);
 
@@ -22,7 +22,7 @@ const Login = () => {
   });
 
   const onSubmit = (data: IFormInputs) => {
-    dispatch(setLogin(data.email, data.password, data.checkbox));
+    dispatch(setLogin(data.email, data.password, data.checkbox, data.captcha));
   };
 
   const formHandler = () => {
@@ -81,6 +81,13 @@ const Login = () => {
                 </Button>
               </div>
             </div>
+
+            {captcha && (
+              <div className={styles.form__captcha}>
+                <img src={captcha} alt="Captcha" />
+                <input type="text" {...form.register('captcha')} placeholder="captcha" />
+              </div>
+            )}
           </form>
         </div>
       )}

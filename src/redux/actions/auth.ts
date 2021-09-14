@@ -8,9 +8,10 @@ export const setAuth = (
   email: string | null,
   isAuth: boolean,
   error?: string,
+  captcha?: string,
 ) => ({
   type: AuthActionTypes.AUTH,
-  payload: { userId, login, email, isAuth, error },
+  payload: { userId, login, email, isAuth, error, captcha },
 });
 
 export const getAuth = () => async (dispatch: Dispatch<AuthAction>) => {
@@ -24,18 +25,20 @@ export const getAuth = () => async (dispatch: Dispatch<AuthAction>) => {
 };
 
 export const setLogin =
-  (email: string, password: string, rememberMe: boolean) =>
+  (email: string, password: string, rememberMe: boolean, captcha: string) =>
   async (dispatch: Dispatch<AuthAction | any>) => {
     try {
       const response = await instance.post('auth/login', {
         email,
         password,
         rememberMe,
+        captcha,
       });
       const errorText = response.data.messages[0];
 
       if (response.data.resultCode === 0) dispatch(getAuth());
-      else dispatch(setAuth(null, null, null, false, errorText));
+      if (response.data.resultCode === 1) dispatch(setAuth(null, null, null, false, errorText));
+      if (response.data.resultCode === 10) dispatch(getCaptcha(errorText));
     } catch (error: unknown) {
       if (error instanceof Error) console.log(error.message);
     }
@@ -48,4 +51,10 @@ export const setLogout = () => async (dispatch: Dispatch<AuthAction>) => {
   } catch (error: unknown) {
     if (error instanceof Error) console.log(error.message);
   }
+};
+
+const getCaptcha = (errorText: string) => async (dispatch: Dispatch<AuthAction>) => {
+  const response = await instance.get('/security/get-captcha-url');
+  const captchaUrl = response.data.url;
+  dispatch(setAuth(null, null, null, false, errorText, captchaUrl));
 };

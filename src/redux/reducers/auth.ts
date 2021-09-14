@@ -6,6 +6,7 @@ const initialState: AuthState = {
   email: null,
   isAuth: false,
   error: '',
+  captcha: '',
 };
 
 export const authReducer = (state = initialState, action: AuthAction): AuthState => {
