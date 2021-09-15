@@ -1,7 +1,8 @@
-import { UsersState, UsersAction, UsersActionTypes } from '../../types/users';
+import { UsersState, UsersAction, UsersActionTypes, UsersType } from '../../types/users';
+import { updatedObjectInArray } from '../../utils/helper';
 
 const initialState: UsersState = {
-  users: [],
+  users: [] as Array<UsersType>,
   pageSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
@@ -14,28 +15,12 @@ export const usersReducer = (state = initialState, action: UsersAction): UsersSt
     case UsersActionTypes.FOLLOW:
       return {
         ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.userId) {
-            return {
-              ...user,
-              followed: true,
-            };
-          }
-          return user;
-        }),
+        users: updatedObjectInArray(state.users, action.userId, { followed: true }),
       };
     case UsersActionTypes.UNFOLLOW:
       return {
         ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.userId) {
-            return {
-              ...user,
-              followed: false,
-            };
-          }
-          return user;
-        }),
+        users: updatedObjectInArray(state.users, action.userId, { followed: false }),
       };
     case UsersActionTypes.SET_USERS:
       return {
