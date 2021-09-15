@@ -67,12 +67,14 @@ export const uploadPhoto = (file: File) => async (dispatch: Dispatch<ProfileActi
   }
 };
 
-export const addPost = (id: number, text: string) => ({
-  type: ProfileActionTypes.ADD_POST,
-  posts: { id, text },
-});
+export const addPost = (id: number, text: string) =>
+  ({
+    type: ProfileActionTypes.ADD_POST,
+    posts: { id, text },
+  } as const);
 
-export const deletePost = (id: number) => ({
-  type: ProfileActionTypes.DELETE_POST,
-  posts: { id },
-});
+export const deletePost = (id: number) =>
+  ({
+    type: ProfileActionTypes.DELETE_POST,
+    posts: { id },
+  } as const);

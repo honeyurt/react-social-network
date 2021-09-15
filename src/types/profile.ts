@@ -26,7 +26,7 @@ export type ProfilePhotosType = {
 
 type ProfilePosts = {
   id: number;
-  text: string;
+  text?: string;
 };
 
 export interface ProfileState {
