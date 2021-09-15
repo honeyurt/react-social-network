@@ -73,3 +73,17 @@ export const toggleFollowingProgress = (userId: number, isFetching: boolean) => 
   userId,
   isFetching,
 });
+
+// For tests
+
+export const followSuccess = (userId: number) =>
+  ({
+    type: UsersActionTypes.FOLLOW,
+    userId,
+  } as const);
+
+export const unfollowSucces = (userId: number) =>
+  ({
+    type: UsersActionTypes.UNFOLLOW,
+    userId,
+  } as const);
