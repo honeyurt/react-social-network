@@ -4,6 +4,7 @@ import { profileReducer } from './profile';
 import { authReducer } from './auth';
 import { initReducer } from './init';
 import { videoReducer } from './video';
+import { newsReducers } from './news';
 
 export const rootReducer = combineReducers({
   users: usersReducer,
@@ -11,6 +12,7 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   init: initReducer,
   video: videoReducer,
+  news: newsReducers,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
