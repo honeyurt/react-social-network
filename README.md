@@ -1,8 +1,8 @@
 # React Social Network
 
 Social Network API - [click](https://social-network.samuraijs.com/docs#samuraijs_social_network)
-
-Youtube API        - [click](https://developers.google.com/youtube/v3)
+Youtube API - [click](https://developers.google.com/youtube/v3)
+News API - [click](https://newsapi.org/)
 
 # Stack
 
