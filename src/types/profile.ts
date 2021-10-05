@@ -33,6 +33,7 @@ export interface ProfileState {
   posts: Array<ProfilePosts>;
   profile: ProfileType | null;
   status: string;
+  isSaved: boolean;
 }
 
 export enum ProfileActionTypes {
@@ -41,6 +42,7 @@ export enum ProfileActionTypes {
   SAVE_PHOTO = 'SAVE_PHOTO',
   ADD_POST = 'ADD_POST',
   DELETE_POST = 'DELETE_POST',
+  SAVED_SUCCESS = 'SAVED_SUCCESS',
 }
 
 interface SetUserProfile {
@@ -68,4 +70,14 @@ interface DeletePost {
   posts: ProfilePosts;
 }
 
-export type ProfileAction = SetUserProfile | SetUserStatus | SavePhoto | AddPost | DeletePost;
+interface SavedSuccess {
+  type: ProfileActionTypes.SAVED_SUCCESS;
+}
+
+export type ProfileAction =
+  | SetUserProfile
+  | SetUserStatus
+  | SavePhoto
+  | AddPost
+  | DeletePost
+  | SavedSuccess;

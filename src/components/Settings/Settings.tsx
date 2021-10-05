@@ -20,13 +20,12 @@ import userProfilePagePhoto from '../../assets/img/userProfilePagePhoto.jpg';
 import styles from './Settings.module.css';
 
 const Settings = () => {
+  const [picture, setPicture] = React.useState<File>();
+
   const dispatch = useDispatch();
   const { userId } = useSelector((state: RootState) => state.auth);
-  const { profile, status } = useSelector((state: RootState) => state.profile);
+  const { profile, status, isSaved } = useSelector((state: RootState) => state.profile);
   const id = String(userId);
-
-  const [picture, setPicture] = React.useState<File>();
-  const [saved, setSaved] = React.useState<Boolean>(false);
 
   const onChangePicture = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files;
@@ -79,7 +78,6 @@ const Settings = () => {
       else objData.aboutMe = data.aboutMe;
 
       dispatch(updateProfile(objData));
-      setSaved(true);
     }
   };
 
@@ -189,7 +187,7 @@ const Settings = () => {
               <Button type="submit">Save</Button>
             </div>
             <div className={styles.settings__saved}>
-              {saved && <p>Settings saved successfully &#10003;</p>}
+              {isSaved && <p>Settings saved successfully &#10003;</p>}
             </div>
           </form>
         </div>

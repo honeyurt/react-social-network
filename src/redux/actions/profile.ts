@@ -26,13 +26,19 @@ export const getUserStatus = (userId: string) => async (dispatch: Dispatch<Profi
   }
 };
 
-export const updateProfile = (profile: ProfileType) => async () => {
-  try {
-    await instance.put('profile', profile);
-  } catch (error: unknown) {
-    if (error instanceof Error) console.log(error.message);
-  }
-};
+export const updateProfile =
+  (profile: ProfileType) => async (dispatch: Dispatch<ProfileAction>) => {
+    try {
+      const response = await instance.put('profile', profile);
+
+      if (response.data.resultCode === 0)
+        dispatch({
+          type: ProfileActionTypes.SAVED_SUCCESS,
+        });
+    } catch (error: unknown) {
+      if (error instanceof Error) console.log(error.message);
+    }
+  };
 
 export const updateStatus = (status: string) => async (dispatch: Dispatch<ProfileAction>) => {
   try {

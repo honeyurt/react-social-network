@@ -4,6 +4,7 @@ const initialState: ProfileState = {
   posts: [],
   profile: null,
   status: '',
+  isSaved: false,
 };
 
 export const profileReducer = (state = initialState, action: ProfileAction): ProfileState => {
@@ -32,6 +33,11 @@ export const profileReducer = (state = initialState, action: ProfileAction): Pro
       return {
         ...state,
         posts: state.posts.filter((post) => post.id !== action.posts.id),
+      };
+    case ProfileActionTypes.SAVED_SUCCESS:
+      return {
+        ...state,
+        isSaved: true,
       };
     default:
       return state;
