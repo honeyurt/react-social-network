@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { execute } from '../../redux/actions/video';
 
+import Layout from '../../UI/Layout/Layout';
 import Button from '../../UI/Button/Button';
 import styles from './Video.module.css';
 
@@ -26,10 +27,8 @@ const Music = () => {
   };
 
   return (
-    <section className={styles.video}>
-      <div className={styles.video__title}>
-        <h2>Videos</h2>
-      </div>
+    <Layout>
+      <h2>Videos</h2>
       <div className={styles.video__search}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <input type="text" placeholder="Search" {...form.register('text')} />
@@ -50,7 +49,7 @@ const Music = () => {
             </div>
           ))}
       </div>
-    </section>
+    </Layout>
   );
 };
 

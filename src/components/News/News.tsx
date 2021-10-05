@@ -4,6 +4,7 @@ import { RootState } from '../../redux/reducers';
 import { execute } from '../../redux/actions/news';
 import AuthRedirect from '../../hoc/authRedirect';
 
+import Layout from '../../UI/Layout/Layout';
 import Button from '../../UI/Button/Button';
 import styles from './News.module.css';
 
@@ -28,10 +29,8 @@ const News = () => {
   };
 
   return (
-    <section className={styles.news}>
-      <div className={styles.news__title}>
-        <h2>News</h2>
-      </div>
+    <Layout>
+      <h2>News</h2>
       <div className={styles.news__buttons}>
         <Button onClick={businessClickHandler}>Business</Button>
         <Button onClick={scinceClickHandler}>Science</Button>
@@ -59,7 +58,7 @@ const News = () => {
             </div>
           ))}
       </div>
-    </section>
+    </Layout>
   );
 };
 

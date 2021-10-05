@@ -3,14 +3,15 @@ import AuthRedirect from '../../hoc/authRedirect';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Posts from './Posts/Posts';
 
-import styles from './Profile.module.css';
+import Layout from '../../UI/Layout/Layout';
 
 const Profile = () => {
   return (
-    <section className={styles.profile}>
+    <Layout>
+      <h2>My Profile</h2>
       <ProfileInfo />
       <Posts />
-    </section>
+    </Layout>
   );
 };
 

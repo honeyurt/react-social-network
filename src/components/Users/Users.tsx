@@ -12,6 +12,7 @@ import {
 import User from './User/User';
 import Paginator from './Paginator/Paginator';
 
+import Layout from '../../UI/Layout/Layout';
 import UsersPageLoading from '../../UI/UsersPageLoading';
 import styles from './Users.module.css';
 
@@ -40,7 +41,8 @@ const Users = () => {
   };
 
   return (
-    <>
+    <Layout>
+      <h2>Users</h2>
       <Paginator
         pageSize={pageSize}
         totalUsersCount={totalUsersCount}
@@ -66,7 +68,7 @@ const Users = () => {
                 </div>
               ))}
       </div>
-    </>
+    </Layout>
   );
 };
 

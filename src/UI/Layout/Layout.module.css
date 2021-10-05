@@ -1,0 +1,9 @@
+.layout {
+  margin-top: 10px;
+}
+
+.layout h2 {
+  border-bottom: 1px solid rgb(115, 185, 250);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}

@@ -13,6 +13,7 @@ import {
   uploadPhoto,
 } from '../../redux/actions/profile';
 
+import Layout from '../../UI/Layout/Layout';
 import Button from '../../UI/Button/Button';
 import userProfilePagePhoto from '../../assets/img/userProfilePagePhoto.jpg';
 
@@ -90,10 +91,8 @@ const Settings = () => {
   if (!profile) return <div>Loading..</div>;
 
   return (
-    <section className={styles.settings}>
-      <div className={styles.settings__title}>
-        <h2>Profile Settings</h2>
-      </div>
+    <Layout>
+      <h2>Profile Settings</h2>
       <div className={styles.settings__photo}>
         <div className={styles.photo__left}>
           <img src={profile.photos.large || userProfilePagePhoto} alt="ProfilePhoto" />
@@ -195,7 +194,7 @@ const Settings = () => {
           </form>
         </div>
       </div>
-    </section>
+    </Layout>
   );
 };
 

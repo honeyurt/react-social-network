@@ -21,7 +21,7 @@ const Navbar = () => {
                   fillRule="evenodd"></path>
               </svg>
             </div>
-            <div className={styles.navbar__text}>My profile</div>
+            <div className={styles.navbar__text}>Profile</div>
           </NavLink>
         </li>
         <li>
