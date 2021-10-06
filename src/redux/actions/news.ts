@@ -14,7 +14,10 @@ export const execute = (category: string) => async (dispatch: Dispatch<NewsActio
       type: NewsActionTypes.FIND_NEWS,
       payload: response.data.articles,
     });
-  } catch (error: unknown) {
-    if (error instanceof Error) console.log(error.message);
+  } catch (error: any) {
+    dispatch({
+      type: NewsActionTypes.ERROR,
+      message: error.response.data.message,
+    });
   }
 };

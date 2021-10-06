@@ -9,7 +9,7 @@ import Button from '../../UI/Button/Button';
 import styles from './News.module.css';
 
 const News = () => {
-  const { items } = useSelector((state: RootState) => state.news);
+  const { items, message } = useSelector((state: RootState) => state.news);
   const dispatch = useDispatch();
 
   const businessClickHandler = () => {
@@ -57,6 +57,7 @@ const News = () => {
               </div>
             </div>
           ))}
+        {message && <p className={styles.item__error}>{message}</p>}
       </div>
     </Layout>
   );

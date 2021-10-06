@@ -1,5 +1,6 @@
 export interface NewsState {
   items: Array<NewsType> | null;
+  message: string;
 }
 
 type NewsType = {
@@ -20,6 +21,7 @@ type ArticlesSource = {
 
 export enum NewsActionTypes {
   FIND_NEWS = 'FIND_NEWS',
+  ERROR = 'ERROR',
 }
 
 interface FindNews {
@@ -27,4 +29,9 @@ interface FindNews {
   payload: Array<NewsType>;
 }
 
-export type NewsAction = FindNews;
+interface Error {
+  type: NewsActionTypes.ERROR;
+  message: string;
+}
+
+export type NewsAction = FindNews | Error;

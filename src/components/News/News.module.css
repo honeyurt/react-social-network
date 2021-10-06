@@ -75,3 +75,9 @@
 .item__bottom a {
   font-size: 14px;
 }
+
+.item__error {
+  font-size: 24px;
+  color: #f96969;
+  font-weight: 700;
+}
