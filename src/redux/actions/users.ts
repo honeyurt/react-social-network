@@ -3,10 +3,12 @@ import { instance } from '../../API/api';
 import { UsersAction, UsersActionTypes } from '../../types/users';
 
 export const setUsers =
-  (currentPage = 1, pageSize = 10) =>
+  (currentPage: number, pageSize: number, term: string, friend: boolean | null) =>
   async (dispatch: Dispatch<UsersAction>) => {
     try {
-      const response = await instance.get(`users?page=${currentPage}&count=${pageSize}`);
+      const response = await instance.get(
+        `users?page=${currentPage}&count=${pageSize}&term=${term}&friend=${friend}`,
+      );
       dispatch({
         type: UsersActionTypes.SET_USERS,
         users: response.data.items,
@@ -72,6 +74,12 @@ export const toggleFollowingProgress = (userId: number, isFetching: boolean) => 
   type: UsersActionTypes.TOGGLE_FOLLOWING_PROGRESS,
   userId,
   isFetching,
+});
+
+export const setFilter = (term: string, friend: boolean | null) => ({
+  type: UsersActionTypes.USERS_FILTER,
+  term,
+  friend,
 });
 
 // For tests

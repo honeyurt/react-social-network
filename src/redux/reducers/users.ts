@@ -8,6 +8,8 @@ const initialState: UsersState = {
   currentPage: 1,
   isFetching: true,
   followingProgress: [],
+  term: '',
+  friend: null,
 };
 
 export const usersReducer = (state = initialState, action: UsersAction): UsersState => {
@@ -48,6 +50,12 @@ export const usersReducer = (state = initialState, action: UsersAction): UsersSt
         followingProgress: action.isFetching
           ? [...state.followingProgress, action.userId]
           : state.followingProgress.filter((id) => id !== action.userId),
+      };
+    case UsersActionTypes.USERS_FILTER:
+      return {
+        ...state,
+        term: action.term,
+        friend: action.friend,
       };
     default:
       return state;

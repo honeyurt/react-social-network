@@ -2,9 +2,49 @@
   margin: 10px 0 20px 0;
 }
 
+.users__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.users__search form input {
+  height: 29px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: #97cbf5;
+  border: 1px solid #cdc9c9;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.users__search form input::placeholder {
+  color: #fff;
+}
+
+.users__search form select {
+  margin-right: 10px;
+  height: 29px;
+  color: #fff;
+  background: #97cbf5;
+  border: 1px solid #cdc9c9;
+  border-radius: 4px;
+}
+
+.users__search form button {
+  border: 1px solid #cdc9c9;
+}
+
 .user__item {
   display: flex;
   margin-bottom: 10px;
   padding-top: 10px;
   border-top: 1px solid rgb(115, 185, 250);
+}
+
+.user__notFound {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f96969;
 }
