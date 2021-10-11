@@ -10,7 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
-import Messages from './components/Messenger/Messages';
+import Dialogs from './components/Messenger/Dialogs';
 import Users from './components/Users/Users';
 import Video from './components/Video/Video';
 import Settings from './components/Settings/Settings';
@@ -37,7 +37,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/profile/:userId?" component={Profile} />
           <Route exact path="/news" component={News} />
-          <Route exact path="/messages" component={Messages} />
+          <Route exact path="/dialogs/:userId?/:messages?" component={Dialogs} />
           <Route exact path="/users/" component={Users} />
           <Route exact path="/video" component={Video} />
           <Route exact path="/settings" component={Settings} />

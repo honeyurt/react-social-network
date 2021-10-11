@@ -1,9 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/reducers';
 import { NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+  const { newMessagesCount } = useSelector((state: RootState) => state.dialogs);
+
   return (
     <section className={styles.navbar}>
       <ul className={styles.navbar__items}>
@@ -43,7 +47,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/messages"
+            to="/dialogs"
             activeClassName={styles.navbar__active}
             className={styles.navbar__item}>
             <div className={styles.navbar__img}>
@@ -56,6 +60,11 @@ const Navbar = () => {
               </svg>
             </div>
             <div className={styles.navbar__text}>Messenger</div>
+            {newMessagesCount === 0 ? (
+              ''
+            ) : (
+              <div className={styles.navbar__counter}>{newMessagesCount}</div>
+            )}
           </NavLink>
         </li>
         <li>
