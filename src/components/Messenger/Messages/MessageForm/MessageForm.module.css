@@ -1,0 +1,13 @@
+.messages__form {
+  margin-top: 15px;
+  padding: 0 10px;
+}
+
+.messages__form input {
+  margin-right: 10px;
+  height: 29px;
+  width: 300px;
+  padding: 0 5px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}

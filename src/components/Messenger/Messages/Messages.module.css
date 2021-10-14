@@ -1,0 +1,31 @@
+.messages__item {
+  display: flex;
+  margin-top: 15px;
+  width: 100%;
+  padding: 0 10px 5px 10px;
+}
+
+.item__sender {
+  display: flex;
+  width: 10%;
+  margin-right: 15px;
+  font-weight: 700;
+}
+
+.item__message {
+  display: flex;
+  width: 80%;
+}
+
+.item__date {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.item__notViewed {
+  margin-left: 10px;
+  width: 7px;
+  height: 7px;
+  background-color: #3498db;
+  border-radius: 50%;
+}

@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/reducers';
 import { init } from './redux/actions/init';
+import { getNewMessagesCount } from './redux/actions/dialogs';
 
 import Home from './pages/Home';
 import Header from './components/Header/Header';
@@ -25,6 +26,7 @@ const App = () => {
 
   React.useEffect(() => {
     dispatch(init());
+    dispatch(getNewMessagesCount());
   }, [dispatch]);
 
   if (!initialized) return <div>Loading..</div>;

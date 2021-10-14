@@ -1,0 +1,36 @@
+.dialog__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.dialog__item:hover {
+  background-color: rgb(199 218 235);
+}
+
+.dialog__item a {
+  display: flex;
+  align-items: center;
+}
+
+.dialog__item a img {
+  margin: 0 20px 0 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.dialog__item a p {
+  margin-right: 50px;
+  color: rgb(2, 82, 134);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.image__active {
+  border: 3px solid #37c3f9;
+}
+
+.item__active {
+  background-color: rgb(199 218 235);
+}

@@ -1,4 +1,4 @@
-import { UsersType } from './users';
+import { ProfilePhotosType } from './profile';
 
 type DialogListItemType = {
   id: string;
@@ -24,26 +24,24 @@ type DialogsType = {
   lastDialogActivityDate: Date;
   lastUserActivityDate: Date;
   newMessagesCount: number;
+  photos: ProfilePhotosType;
 };
 
 export interface DialogsState {
-  friends: Array<UsersType>;
   dialogs: Array<DialogsType>;
   dialogList: Array<DialogListType> | null;
   newMessagesCount: number;
+  isLoaded: boolean;
 }
 
 export enum DialogsActionTypes {
-  GET_FRIENDS = 'GET_FRIENDS',
   GET_DIALOGS = 'GET_DIALOGS',
   GET_DIALOG_LIST = 'GET_DIALOG_LIST',
   SEND_MESSAGE = 'SEND_MESSAGE',
   GET_NEW_MESSAGES_COUNT = 'GET_NEW_MESSAGES_COUNT',
-}
-
-interface GetFriends {
-  type: DialogsActionTypes.GET_FRIENDS;
-  friends: Array<UsersType>;
+  UPDATE_MESSAGES_COUNTER = 'UPDATE_MESSAGES_COUNT',
+  START_MESSAGING = 'START_MESSAGING',
+  IS_LOADED = 'IS_LOADED',
 }
 
 interface GetDialogs {
@@ -65,9 +63,25 @@ interface GetNewMessagesCount {
   count: number;
 }
 
+interface UpdateMessagesCounter {
+  type: DialogsActionTypes.UPDATE_MESSAGES_COUNTER;
+  counter: number;
+}
+
+interface StartMessaging {
+  type: DialogsActionTypes.START_MESSAGING;
+  id: string;
+}
+
+interface IsLoaded {
+  type: DialogsActionTypes.IS_LOADED;
+}
+
 export type DialogsAction =
-  | GetFriends
   | GetDialogs
   | GetDialogList
   | SendMessage
-  | GetNewMessagesCount;
+  | GetNewMessagesCount
+  | StartMessaging
+  | UpdateMessagesCounter
+  | IsLoaded;

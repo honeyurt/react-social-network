@@ -2,21 +2,20 @@ import { Dispatch } from 'redux';
 import { instance } from '../../API/api';
 import { DialogsAction, DialogsActionTypes } from '../../types/dialogs';
 
-export const getFriends = () => async (dispatch: Dispatch<DialogsAction>) => {
-  const response = await instance.get('users?friend=true');
-  dispatch({
-    type: DialogsActionTypes.GET_FRIENDS,
-    friends: response.data.items,
-  });
-};
-
 export const getDialgos = () => async (dispatch: Dispatch<DialogsAction>) => {
   try {
     const response = await instance.get('dialogs');
-    dispatch({
-      type: DialogsActionTypes.GET_DIALOGS,
-      dialogs: response.data,
-    });
+
+    if (response.status === 200) {
+      dispatch({
+        type: DialogsActionTypes.GET_DIALOGS,
+        dialogs: response.data,
+      });
+
+      dispatch({
+        type: DialogsActionTypes.IS_LOADED,
+      });
+    }
   } catch (error: unknown) {
     if (error instanceof Error) console.log(error.message);
   }
@@ -59,3 +58,18 @@ export const getNewMessagesCount = () => async (dispatch: Dispatch<DialogsAction
     if (error instanceof Error) console.log(error.message);
   }
 };
+
+export const startMessaging = (userId: string) => async () => {
+  try {
+    const response = await instance.put(`dialogs/${userId}`);
+
+    if (response.status === 200) alert('Please reload the page.');
+  } catch (error: unknown) {
+    if (error instanceof Error) console.log(error.message);
+  }
+};
+
+export const updateMessagesCount = (counter: number) => ({
+  type: DialogsActionTypes.UPDATE_MESSAGES_COUNTER,
+  counter,
+});
