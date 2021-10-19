@@ -1,6 +1,6 @@
 import { ProfilePhotosType } from './profile';
 
-type DialogListItemType = {
+export type DialogListItemType = {
   id: string;
   body: string;
   translatedBody: null;
@@ -29,7 +29,7 @@ type DialogsType = {
 
 export interface DialogsState {
   dialogs: Array<DialogsType>;
-  dialogList: Array<DialogListType> | null;
+  dialogList: DialogListType;
   newMessagesCount: number;
   isLoaded: boolean;
 }
@@ -37,6 +37,7 @@ export interface DialogsState {
 export enum DialogsActionTypes {
   GET_DIALOGS = 'GET_DIALOGS',
   GET_DIALOG_LIST = 'GET_DIALOG_LIST',
+  DELETE_MESSAGE = 'DELETE_MESSAGE',
   SEND_MESSAGE = 'SEND_MESSAGE',
   GET_NEW_MESSAGES_COUNT = 'GET_NEW_MESSAGES_COUNT',
   UPDATE_MESSAGES_COUNTER = 'UPDATE_MESSAGES_COUNT',
@@ -52,6 +53,11 @@ interface GetDialogs {
 interface GetDialogList {
   type: DialogsActionTypes.GET_DIALOG_LIST;
   items: DialogListType;
+}
+
+interface DeleteMessage {
+  type: DialogsActionTypes.DELETE_MESSAGE;
+  messageId: string;
 }
 
 interface SendMessage {
@@ -84,4 +90,5 @@ export type DialogsAction =
   | GetNewMessagesCount
   | StartMessaging
   | UpdateMessagesCounter
-  | IsLoaded;
+  | IsLoaded
+  | DeleteMessage;

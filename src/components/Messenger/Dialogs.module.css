@@ -1,7 +1,37 @@
 .dialogs {
+  margin-top: 10px;
+}
+
+.dialogs h2 {
+  border-bottom: 1px solid rgb(115, 185, 250);
+  padding-bottom: 15px;
+}
+
+.dialogs__wrapper {
   display: flex;
   min-height: 450px;
   margin-bottom: 25px;
+}
+
+.dialogs__buttons {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgb(115, 185, 250);
+  padding-bottom: 3px;
+  margin: 10px 0;
+}
+
+.dialogs__buttons svg {
+  color: #5181b8;
+}
+
+.dialogs__buttons svg:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.dialogs__buttons div {
+  margin: 0 10px;
 }
 
 .dialogs__items {

@@ -24,10 +24,25 @@ export const getDialgos = () => async (dispatch: Dispatch<DialogsAction>) => {
 export const getDialgosList = (userID: number) => async (dispatch: Dispatch<DialogsAction>) => {
   try {
     const response = await instance.get(`dialogs/${userID}/messages`);
+
     dispatch({
       type: DialogsActionTypes.GET_DIALOG_LIST,
       items: response.data,
     });
+  } catch (error: unknown) {
+    if (error instanceof Error) console.log(error.message);
+  }
+};
+
+export const deleteMessage = (messageId: string) => async (dispatch: Dispatch<DialogsAction>) => {
+  try {
+    const resposne = await instance.delete(`dialogs/messages/${messageId}`);
+
+    if (resposne.status === 200)
+      dispatch({
+        type: DialogsActionTypes.DELETE_MESSAGE,
+        messageId,
+      });
   } catch (error: unknown) {
     if (error instanceof Error) console.log(error.message);
   }
@@ -63,7 +78,7 @@ export const startMessaging = (userId: string) => async () => {
   try {
     const response = await instance.put(`dialogs/${userId}`);
 
-    if (response.status === 200) alert('Please reload the page.');
+    if (response.status === 200) alert('Please return to the dialogs.');
   } catch (error: unknown) {
     if (error instanceof Error) console.log(error.message);
   }

@@ -2,7 +2,11 @@ import { DialogsState, DialogsAction, DialogsActionTypes } from '../../types/dia
 
 const initialState: DialogsState = {
   dialogs: [],
-  dialogList: null,
+  dialogList: {
+    items: [],
+    totalCount: 0,
+    error: null,
+  },
   newMessagesCount: 0,
   isLoaded: false,
 };
@@ -17,7 +21,20 @@ export const dialogsReducer = (state = initialState, action: DialogsAction): Dia
     case DialogsActionTypes.GET_DIALOG_LIST:
       return {
         ...state,
-        dialogList: [action.items],
+        dialogList: action.items,
+      };
+    case DialogsActionTypes.DELETE_MESSAGE:
+      const updatedDialogList = state.dialogList.items.filter(
+        (message) => message.id !== action.messageId,
+      );
+
+      return {
+        ...state,
+        dialogList: {
+          items: updatedDialogList,
+          totalCount: state.dialogList.totalCount - 1,
+          error: state.dialogList.error,
+        },
       };
     case DialogsActionTypes.SEND_MESSAGE:
       return {
