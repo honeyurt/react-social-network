@@ -80,7 +80,7 @@ export const startMessaging = (userId: string) => async () => {
 
     if (response.status === 200) alert('Please return to the dialogs.');
   } catch (error: unknown) {
-    if (error instanceof Error) console.log(error.message);
+    alert('Please enter a correct ID!');
   }
 };
 

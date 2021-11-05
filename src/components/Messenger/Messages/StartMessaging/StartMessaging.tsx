@@ -15,7 +15,9 @@ const StartMessaging = () => {
 
   const onStartMessaging = (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    dispatch(startMessaging(id));
+
+    if (Number(id) > 0) dispatch(startMessaging(id));
+    else alert('ID must be a positive number and greater than 0!');
   };
 
   return (
@@ -24,7 +26,9 @@ const StartMessaging = () => {
       <form>
         <label htmlFor="id">ID</label>
         <input type="number" placeholder="id" id="id" value={id} onChange={onChangeInput} />
-        <Button onClick={onStartMessaging}>Start</Button>
+        <Button onClick={onStartMessaging} disabled={id.length === 0}>
+          Start
+        </Button>
       </form>
     </div>
   );
