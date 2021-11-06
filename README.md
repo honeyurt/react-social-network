@@ -10,5 +10,6 @@ News API - [click](https://newsapi.org/)
 - ReactJS
 - Redux / Redux Thunk
 - React Router
-- Axios
 - React Hook Form
+- WebSocket
+- Axios
