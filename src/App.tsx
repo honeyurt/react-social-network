@@ -18,6 +18,7 @@ import Settings from './components/Settings/Settings';
 import Login from './components/Login/Login';
 import NotFound from './pages/NotFound';
 import StartMessaging from './components/Messenger/Messages/StartMessaging/StartMessaging';
+import Chat from './components/Chat/Chat';
 
 import styles from './App.module.css';
 
@@ -42,6 +43,7 @@ const App = () => {
           <Route exact path="/news" component={News} />
           <Route exact path="/dialogs/:userId?/:messages?" component={Dialogs} />
           <Route exact path="/dialog-create" component={StartMessaging} />
+          <Route exact path="/chat" component={Chat} />
           <Route exact path="/users/" component={Users} />
           <Route exact path="/video" component={Video} />
           <Route exact path="/settings" component={Settings} />

@@ -6,6 +6,7 @@ import { initReducer } from './init';
 import { videoReducer } from './video';
 import { newsReducers } from './news';
 import { dialogsReducer } from './dialogs';
+import { chatReducer } from './chat';
 
 export const rootReducer = combineReducers({
   users: usersReducer,
@@ -15,6 +16,7 @@ export const rootReducer = combineReducers({
   video: videoReducer,
   news: newsReducers,
   dialogs: dialogsReducer,
+  chat: chatReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

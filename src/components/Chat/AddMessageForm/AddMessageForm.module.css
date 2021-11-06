@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.form textarea {
+  width: 700px;
+  min-height: 50px;
+  margin-right: 10px;
+  border: solid 1px;
+}
