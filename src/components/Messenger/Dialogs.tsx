@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { RootState } from '../../redux/reducers';
 import { getDialgos, getDialgosList, updateMessagesCount } from '../../redux/actions/dialogs';
-import AuthRedirect from '../../hoc/authRedirect';
+import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 
 import Messages from './Messages/Messages';
 import MessageForm from './Messages/MessageForm/MessageForm';
@@ -102,4 +102,4 @@ const Dialogs = () => {
   );
 };
 
-export default AuthRedirect(Dialogs);
+export default withAuthRedirect(Dialogs);

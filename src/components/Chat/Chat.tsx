@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startListening, stopListening } from '../../redux/actions/chat';
 import { RootState } from '../../redux/reducers';
-import AuthRedirect from '../../hoc/authRedirect';
+import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 
 import Messages from './Messages/Messages';
 import AddMessageForm from './AddMessageForm/AddMessageForm';
@@ -30,4 +30,4 @@ const Chat = () => {
   );
 };
 
-export default AuthRedirect(Chat);
+export default withAuthRedirect(Chat);

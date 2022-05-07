@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { IFormInputs, VideosSchema } from '../../utils/schemas/videosSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import AuthRedirect from '../../hoc/authRedirect';
+import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { execute } from '../../redux/actions/video';
@@ -53,4 +53,4 @@ const Music = () => {
   );
 };
 
-export default AuthRedirect(Music);
+export default withAuthRedirect(Music);

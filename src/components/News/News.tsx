@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { execute } from '../../redux/actions/news';
-import AuthRedirect from '../../hoc/authRedirect';
+import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 
 import Layout from '../../UI/Layout/Layout';
 import Button from '../../UI/Button/Button';
@@ -63,4 +63,4 @@ const News = () => {
   );
 };
 
-export default AuthRedirect(News);
+export default withAuthRedirect(News);

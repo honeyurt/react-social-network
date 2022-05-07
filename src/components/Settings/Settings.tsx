@@ -4,7 +4,8 @@ import { RootState } from '../../redux/reducers';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SettingsSchema, IFormInputs } from '../../utils/schemas/settingsSchema';
-import AuthRedirect from '../../hoc/authRedirect';
+import { withAuthRedirect } from '../../hoc/with-auth-redirect';
+
 import {
   getUserProfile,
   getUserStatus,
@@ -196,4 +197,4 @@ const Settings = () => {
   );
 };
 
-export default AuthRedirect(Settings);
+export default withAuthRedirect(Settings);
