@@ -1,10 +1,10 @@
 import React from 'react';
-import { RootState } from '../redux/reducers';
+import { RootState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
 
-import Logo from '../assets/img/header-logo.png';
+// TODO: rebuild this page
 
-const Home = () => {
+export const Home = () => {
   const { login } = useSelector((state: RootState) => state.auth);
 
   return (
@@ -15,9 +15,6 @@ const Home = () => {
           React Social Network{`, ${login ? login : 'stranger'}`}!
         </span>
       </h1>
-      <img src={Logo} alt="Logo" />
     </>
   );
 };
-
-export default Home;

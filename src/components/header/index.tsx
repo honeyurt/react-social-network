@@ -5,7 +5,7 @@ import { setLogout } from '../../redux/actions/auth';
 import { RootState } from '../../redux/reducers';
 import { Link } from 'react-router-dom';
 import { LogoutIcon } from './icons/logout-icon';
-import Logo from '../../assets/img/header-logo.png';
+import Logo from './images/header-logo.png';
 import styles from './styles.module.css';
 
 export const Header = () => {
