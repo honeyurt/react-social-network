@@ -3,10 +3,8 @@ import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
 import { getUserProfile, getUserStatus } from '../../../redux/actions/profile';
-
 import ProfilePageLoading from '../../../UI/ProfilePageLoading';
-import userProfilePagePhoto from '../../../assets/img/userProfilePagePhoto.jpg';
-
+import UserPhoto from '../../../assets/images/user-photo.jpg';
 import styles from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
@@ -32,7 +30,7 @@ const ProfileInfo = () => {
   return (
     <div className={styles.profile__top}>
       <div className={styles.profile__image}>
-        <img src={profile.photos.large || userProfilePagePhoto} alt="ProfilePhoto" />
+        <img src={profile.photos.large || UserPhoto} alt="UserPhoto" />
       </div>
       <div className={styles.profile__info}>
         <div className={styles.profile__name}>{profile.fullName}</div>

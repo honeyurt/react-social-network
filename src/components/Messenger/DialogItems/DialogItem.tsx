@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 import styles from './DialogItem.module.css';
-import userProfilePagePhoto from '../../../assets/img/userProfilePagePhoto.jpg';
+import UserPhoto from '../../../assets/images/user-photo.jpg';
 
 interface Props {
   id: number;
@@ -20,7 +19,7 @@ const DialogItem: React.FC<Props> = ({ id, photo, hasNewMessages, userName, onCl
         activeClassName={styles.item__active}
         onClick={onClick.bind(null, id)}>
         <img
-          src={photo || userProfilePagePhoto}
+          src={photo || UserPhoto}
           alt="ProfilePhoto"
           className={hasNewMessages ? styles.image__active : ''}
         />

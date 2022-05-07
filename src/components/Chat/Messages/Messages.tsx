@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
-
 import styles from './Messages.module.css';
-import userProfilePagePhoto from '../../../assets/img/userProfilePagePhoto.jpg';
+import UserPhoto from '../../../assets/images/user-photo.jpg';
 
 const Messages = () => {
   const { messages } = useSelector((state: RootState) => state.chat);
@@ -32,7 +31,7 @@ const Messages = () => {
         ) : (
           <div className={styles.message} key={index}>
             <div className={styles.message__left}>
-              <img src={photo || userProfilePagePhoto} alt="UserPhoto" />
+              <img src={photo || UserPhoto} alt="UserPhoto" />
               <p>{userName}:</p>
             </div>
             <div className={styles.message__right}>

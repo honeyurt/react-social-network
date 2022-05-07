@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SettingsSchema, IFormInputs } from '../../utils/schemas/settingsSchema';
 import { withAuthRedirect } from '../../hoc/with-auth-redirect';
-
 import {
   getUserProfile,
   getUserStatus,
@@ -13,10 +12,9 @@ import {
   updateStatus,
   uploadPhoto,
 } from '../../redux/actions/profile';
-
 import Layout from '../../UI/Layout/Layout';
 import Button from '../../UI/Button/Button';
-import userProfilePagePhoto from '../../assets/img/userProfilePagePhoto.jpg';
+import UserPhoto from '../../assets/images/user-photo.jpg';
 
 import styles from './Settings.module.css';
 
@@ -94,7 +92,7 @@ const Settings = () => {
       <h2>Profile Settings</h2>
       <div className={styles.settings__photo}>
         <div className={styles.photo__left}>
-          <img src={profile.photos.large || userProfilePagePhoto} alt="ProfilePhoto" />
+          <img src={profile.photos.large || UserPhoto} alt="UserPhoto" />
           <span>(prefer 250px 250px)</span>
         </div>
         <div className={styles.photo__right}>
