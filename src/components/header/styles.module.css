@@ -7,12 +7,15 @@
   border-radius: 3px;
 }
 
-.header__logo img {
-  width: 70px;
+.link {
   height: 50px;
 }
 
-.header__link {
+.image {
+  width: 70px;
+}
+
+.headerLink{
   display: flex;
   color: lightblue;
   margin-right: 20px;
@@ -21,7 +24,7 @@
   align-items: center;
 }
 
-.header__link nav {
+.greeting {
   margin-right: 15px;
   cursor: auto;
 }

@@ -5,10 +5,9 @@ import { RootState } from './redux/reducers';
 import { init } from './redux/actions/init';
 import { getNewMessagesCount } from './redux/actions/dialogs';
 
+import { Layout } from './components/layout';
+
 import Home from './pages/Home';
-import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Dialogs from './components/Messenger/Dialogs';
@@ -20,7 +19,7 @@ import NotFound from './pages/NotFound';
 import StartMessaging from './components/Messenger/Messages/StartMessaging/StartMessaging';
 import Chat from './components/Chat/Chat';
 
-import styles from './App.module.css';
+import styles from './app.module.css';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,11 +31,10 @@ const App = () => {
   }, [dispatch]);
 
   if (!initialized) return <div>Loading..</div>;
+
   return (
-    <div className={styles.wrapper}>
-      <Header />
-      <Navbar />
-      <div className={styles.content}>
+    <div className={styles.app}>
+      <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/profile/:userId?" component={Profile} />
@@ -50,8 +48,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="*" component={NotFound} />
         </Switch>
-      </div>
-      <Footer />
+      </Layout>
     </div>
   );
 };

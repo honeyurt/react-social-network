@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  width: 1170px;
+  margin: 0 auto;
+  padding: 15px 15px;
+
+  grid-template-areas:
+    'header header'
+    'navbar content'
+    'footer footer';
+
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-row-gap: 15px;
+}
+
+.content {
+  grid-area: content;
+  background-color: #ecf0f1;
+  margin-left: 15px;
+  border-radius: 3px;
+  text-align: center;
+}

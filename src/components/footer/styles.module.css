@@ -1,14 +1,13 @@
 .footer {
   grid-area: footer;
-
   text-align: center;
 }
 
-.footer a {
+.footerLink {
   color: rgba(107, 114, 128);
   font-size: 0.875rem;
 }
 
-.footer a:hover span {
+.heart:hover  {
   color: red;
 }
