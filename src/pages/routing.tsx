@@ -11,12 +11,13 @@ import Video from '../components/Video/Video';
 import { Home } from './home';
 import { NewsPageView } from './news';
 import { NotFound } from './not-found';
+import { NEWS_ROUTE } from './routes';
 
 export const PagesRouter = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="/profile/:userId?" component={Profile} />
-    <Route exact path="/news" component={NewsPageView} />
+    <Route exact path={NEWS_ROUTE} component={NewsPageView} />
     <Route exact path="/dialogs/:userId?/:messages?" component={Dialogs} />
     <Route exact path="/dialog-create" component={StartMessaging} />
     <Route exact path="/chat" component={Chat} />

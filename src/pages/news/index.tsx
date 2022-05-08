@@ -1,14 +1,15 @@
 import React from 'react';
 import { useNews } from '../../hooks/use-news';
-import Button from '../../UI/Button/Button';
-import { NewsList } from './components/news-list';
 import { withAuthRedirect } from '../../hoc/with-auth-redirect';
+import { NewsList } from './components/news-list';
+import { PageLayout } from '../../components/page-layout';
+import Button from '../../UI/Button/Button';
 import styles from './styles.module.css';
 
 const CATEGORIES = ['Business', 'Science', 'Sports', 'Technology'];
 
 const NewsPage = () => {
-  const { isLoading, getNewsByCategory, news, errorMessage } = useNews();
+  const { isLoading, getNewsByCategory, news, errorMessage, hasQuery } = useNews();
 
   // TODO: add spinner ?
   if (isLoading) {
@@ -16,8 +17,7 @@ const NewsPage = () => {
   }
 
   return (
-    // TODO: add new page layout
-    <>
+    <PageLayout title="News">
       <div className={styles.buttons}>
         {CATEGORIES.map((category) => (
           <Button key={category} onClick={() => getNewsByCategory(category)}>
@@ -25,8 +25,8 @@ const NewsPage = () => {
           </Button>
         ))}
       </div>
-      <NewsList news={news} errorMessage={errorMessage} />
-    </>
+      {hasQuery && <NewsList news={news} errorMessage={errorMessage} />}
+    </PageLayout>
   );
 };
 
