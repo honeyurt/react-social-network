@@ -9,14 +9,14 @@ import Settings from '../components/Settings/Settings';
 import Users from '../components/Users/Users';
 import Video from '../components/Video/Video';
 import { Home } from './home';
-import { NewsPage } from './news';
+import { NewsPageView } from './news';
 import { NotFound } from './not-found';
 
 export const PagesRouter = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="/profile/:userId?" component={Profile} />
-    <Route exact path="/news" component={NewsPage} />
+    <Route exact path="/news" component={NewsPageView} />
     <Route exact path="/dialogs/:userId?/:messages?" component={Dialogs} />
     <Route exact path="/dialog-create" component={StartMessaging} />
     <Route exact path="/chat" component={Chat} />

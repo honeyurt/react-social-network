@@ -2,11 +2,12 @@ import React from 'react';
 import { useNews } from '../../hooks/use-news';
 import Button from '../../UI/Button/Button';
 import { NewsList } from './components/news-list';
+import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import styles from './styles.module.css';
 
 const CATEGORIES = ['Business', 'Science', 'Sports', 'Technology'];
 
-export const NewsPage = () => {
+const NewsPage = () => {
   const { isLoading, getNewsByCategory, news, errorMessage } = useNews();
 
   // TODO: add spinner ?
@@ -28,3 +29,5 @@ export const NewsPage = () => {
     </>
   );
 };
+
+export const NewsPageView = withAuthRedirect(NewsPage);
