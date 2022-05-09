@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-const UsersPageLoading: React.FC = (props) => (
+export const UsersPageLoading: React.FC = (props) => (
   <ContentLoader
     speed={2}
     width={200}
@@ -16,5 +16,3 @@ const UsersPageLoading: React.FC = (props) => (
     <rect x="131" y="38" rx="4" ry="4" width="68" height="10" />
   </ContentLoader>
 );
-
-export default UsersPageLoading;

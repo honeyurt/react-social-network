@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
 import { getUserProfile, getUserStatus } from '../../../redux/actions/profile';
-import ProfilePageLoading from '../../../UI/ProfilePageLoading';
+import { ProfilePageLoading } from '../../profile-page-loading';
 import UserPhoto from '../../../assets/images/user-photo.jpg';
 import styles from './ProfileInfo.module.css';
 

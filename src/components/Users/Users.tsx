@@ -15,10 +15,9 @@ import Paginator from './Paginator/Paginator';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SearchUsersSchema, IFormInputs } from '../../utils/schemas/searchUsersSchema';
-
 import Layout from '../../UI/Layout/Layout';
 import Button from '../../UI/Button/Button';
-import UsersPageLoading from '../../UI/UsersPageLoading';
+import { UsersPageLoading } from '../users-page-loading';
 import styles from './Users.module.css';
 
 const Users = () => {

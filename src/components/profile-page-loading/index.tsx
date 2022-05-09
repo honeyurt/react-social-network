@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-const ProfilePageLoading: React.FC = (props) => (
+export const ProfilePageLoading: React.FC = (props) => (
   <ContentLoader
     speed={2}
     width={905}
@@ -22,5 +22,3 @@ const ProfilePageLoading: React.FC = (props) => (
     <rect x="377" y="82" rx="4" ry="4" width="157" height="16" />
   </ContentLoader>
 );
-
-export default ProfilePageLoading;
