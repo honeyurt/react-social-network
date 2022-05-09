@@ -6,7 +6,7 @@ const API_KEY = process.env.REACT_APP_NEWS_ALI_KEY;
 
 interface IApiNews {
   /**
-   * Полуучение списка новостей по категории
+   * Получение списка новостей по категории
    */
   getNewsByCategory(category: string): Promise<NewsResponse>;
 }
