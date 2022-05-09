@@ -4,7 +4,7 @@ import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { RootState } from '../../redux/reducers';
 import { getDialgos, getDialgosList, updateMessagesCount } from '../../redux/actions/dialogs';
 import { withAuthRedirect } from '../../hoc/with-auth-redirect';
-
+import { PageLayout } from '../page-layout';
 import Messages from './Messages/Messages';
 import MessageForm from './Messages/MessageForm/MessageForm';
 import DialogItem from './DialogItems/DialogItem';
@@ -45,8 +45,7 @@ const Dialogs = () => {
   if (!isLoaded) return <p>Loading..</p>;
 
   return (
-    <section className={styles.dialogs}>
-      <h2>Dialogs</h2>
+    <PageLayout title="Dialogs">
       {dialogs.length === 0 ? (
         <Redirect to="/dialog-create" />
       ) : (
@@ -98,7 +97,7 @@ const Dialogs = () => {
           </div>
         </div>
       )}
-    </section>
+    </PageLayout>
   );
 };
 

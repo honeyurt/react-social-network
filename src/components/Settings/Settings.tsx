@@ -12,7 +12,7 @@ import {
   updateStatus,
   uploadPhoto,
 } from '../../redux/actions/profile';
-import Layout from '../../UI/Layout/Layout';
+import { PageLayout } from '../page-layout';
 import { Button } from '../button';
 import UserPhoto from '../../assets/images/user-photo.jpg';
 import styles from './Settings.module.css';
@@ -87,8 +87,7 @@ const Settings = () => {
   if (!profile) return <div>Loading..</div>;
 
   return (
-    <Layout>
-      <h2>Profile Settings</h2>
+    <PageLayout title="Profile Settings">
       <div className={styles.settings__photo}>
         <div className={styles.photo__left}>
           <img src={profile.photos.large || UserPhoto} alt="UserPhoto" />
@@ -190,7 +189,7 @@ const Settings = () => {
           </form>
         </div>
       </div>
-    </Layout>
+    </PageLayout>
   );
 };
 

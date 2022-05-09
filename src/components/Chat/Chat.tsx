@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { startListening, stopListening } from '../../redux/actions/chat';
 import { RootState } from '../../redux/reducers';
 import { withAuthRedirect } from '../../hoc/with-auth-redirect';
-
+import { PageLayout } from '../page-layout';
 import Messages from './Messages/Messages';
 import AddMessageForm from './AddMessageForm/AddMessageForm';
-import Layout from '../../UI/Layout/Layout';
 
 const Chat = () => {
   const dispatch = useDispatch();
@@ -21,12 +20,11 @@ const Chat = () => {
   }, [dispatch]);
 
   return (
-    <Layout>
-      <h2>Chat</h2>
+    <PageLayout title="Chat">
       {status === 'error' && alert('Some error occurred. Please refresh the page.')}
       <Messages />
       <AddMessageForm />
-    </Layout>
+    </PageLayout>
   );
 };
 

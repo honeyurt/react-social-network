@@ -15,7 +15,7 @@ import Paginator from './Paginator/Paginator';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SearchUsersSchema, IFormInputs } from '../../utils/schemas/searchUsersSchema';
-import Layout from '../../UI/Layout/Layout';
+import { PageLayout } from '../page-layout';
 import { Button } from '../button';
 import { UsersPageLoading } from '../users-page-loading';
 import styles from './Users.module.css';
@@ -66,8 +66,7 @@ const Users = () => {
   };
 
   return (
-    <Layout>
-      <h2>Users</h2>
+    <PageLayout title="Users">
       <div className={styles.users__search}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <input type="text" placeholder="name" {...form.register('name')} />
@@ -104,7 +103,7 @@ const Users = () => {
               ))}
         {users.length === 0 && <p className={styles.user__notFound}>Users is not found.</p>}
       </div>
-    </Layout>
+    </PageLayout>
   );
 };
 

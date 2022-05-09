@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { execute } from '../../redux/actions/video';
 import { Button } from '../button';
-import Layout from '../../UI/Layout/Layout';
+import { PageLayout } from '../page-layout';
 import styles from './Video.module.css';
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed/';
@@ -26,8 +26,7 @@ const Music = () => {
   };
 
   return (
-    <Layout>
-      <h2>Videos</h2>
+    <PageLayout title="Videos">
       <div className={styles.video__search}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <input type="text" placeholder="Search" {...form.register('text')} />
@@ -48,7 +47,7 @@ const Music = () => {
             </div>
           ))}
       </div>
-    </Layout>
+    </PageLayout>
   );
 };
 
