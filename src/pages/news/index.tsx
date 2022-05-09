@@ -3,7 +3,7 @@ import { useNews } from '../../hooks/use-news';
 import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { NewsList } from './components/news-list';
 import { PageLayout } from '../../components/page-layout';
-import Button from '../../UI/Button/Button';
+import { Button } from '../../components/button';
 import styles from './styles.module.css';
 
 const CATEGORIES = ['Business', 'Science', 'Sports', 'Technology'];

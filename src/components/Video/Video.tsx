@@ -6,9 +6,8 @@ import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { execute } from '../../redux/actions/video';
-
+import { Button } from '../button';
 import Layout from '../../UI/Layout/Layout';
-import Button from '../../UI/Button/Button';
 import styles from './Video.module.css';
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed/';

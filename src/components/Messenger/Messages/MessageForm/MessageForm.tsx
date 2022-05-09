@@ -1,12 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { sendMessage } from '../../../../redux/actions/dialogs';
-
 import { useForm } from 'react-hook-form';
 import { IFormInputs, DialogSchema } from '../../../../utils/schemas/dialogsSchema';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup.js';
-
-import Button from '../../../../UI/Button/Button';
+import { Button } from '../../../button';
 import styles from './MessageForm.module.css';
 
 interface Props {

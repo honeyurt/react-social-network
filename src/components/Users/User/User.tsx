@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UsersType } from '../../../types/users';
-import Button from '../../../UI/Button/Button';
+import { Button } from '../../button';
 import UserPhoto from '../../../assets/images/user-photo.jpg';
 import styles from './User.module.css';
 

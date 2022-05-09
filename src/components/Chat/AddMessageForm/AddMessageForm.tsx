@@ -2,8 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
 import { sendMessage } from '../../../redux/actions/chat';
-
-import Button from '../../../UI/Button/Button';
+import { Button } from '../../button';
 import styles from './AddMessageForm.module.css';
 
 const AddMessageForm = () => {

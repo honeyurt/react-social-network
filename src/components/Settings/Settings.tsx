@@ -13,9 +13,8 @@ import {
   uploadPhoto,
 } from '../../redux/actions/profile';
 import Layout from '../../UI/Layout/Layout';
-import Button from '../../UI/Button/Button';
+import { Button } from '../button';
 import UserPhoto from '../../assets/images/user-photo.jpg';
-
 import styles from './Settings.module.css';
 
 const Settings = () => {

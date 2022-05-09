@@ -5,9 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPost, deletePost } from '../../../redux/actions/profile';
 import { RootState } from '../../../redux/reducers';
-
-import Button from '../../../UI/Button/Button';
-
+import { Button } from '../../button';
 import styles from './Posts.module.css';
 
 const Posts = () => {
@@ -36,7 +34,7 @@ const Posts = () => {
       <h2>Posts</h2>
       <form method="submit" id="posts" onSubmit={form.handleSubmit(onSubmit)}>
         <textarea placeholder="your news.." form="posts" {...form.register('text')}></textarea>
-        <Button form="posts">Add post</Button>
+        <Button>Add post</Button>
       </form>
       <div className={styles.profile__posts}>
         {posts.length === 0 ? (

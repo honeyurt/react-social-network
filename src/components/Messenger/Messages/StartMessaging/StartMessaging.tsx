@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { startMessaging } from '../../../../redux/actions/dialogs';
-
-import Button from '../../../../UI/Button/Button';
+import { Button } from '../../../button';
 import styles from './StartMessaging.module.css';
 
 const StartMessaging = () => {

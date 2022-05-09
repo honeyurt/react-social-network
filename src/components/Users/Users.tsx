@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SearchUsersSchema, IFormInputs } from '../../utils/schemas/searchUsersSchema';
 import Layout from '../../UI/Layout/Layout';
-import Button from '../../UI/Button/Button';
+import { Button } from '../button';
 import { UsersPageLoading } from '../users-page-loading';
 import styles from './Users.module.css';
 

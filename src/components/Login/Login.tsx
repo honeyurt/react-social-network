@@ -6,8 +6,7 @@ import { setLogin } from '../../redux/actions/auth';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema, IFormInputs } from '../../utils/schemas/loginSchema';
-
-import Button from '../../UI/Button/Button';
+import { Button } from '../button';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -49,7 +48,7 @@ const Login = () => {
       <div className={styles.buttons}>
         <Button onClick={formHandler}>Sign In</Button>
         <a href="https://social-network.samuraijs.com/signUp">
-          <Button>Sing Up</Button>
+          <Button>Sign Up</Button>
         </a>
       </div>
       {formVisible && (
@@ -77,7 +76,7 @@ const Login = () => {
               </div>
               <div className={styles.form__right}>
                 <Button type="submit" disabled={!form.formState.isValid}>
-                  Sing In
+                  Sign In
                 </Button>
               </div>
             </div>
