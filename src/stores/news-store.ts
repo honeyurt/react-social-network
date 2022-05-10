@@ -33,7 +33,9 @@ class NewsStore {
       this.errorMessage = error.response.data.message;
     } finally {
       runInAction(() => {
-        this.news = response.data.articles;
+        if (response) {
+          this.news = response.data.articles;
+        }
       });
     }
   };

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { NewsResponse } from '../types/news/news-response';
 
 const API_URL = 'https://newsapi.org/v2/top-headlines?';
-const API_KEY = process.env.REACT_APP_NEWS_ALI_KEY;
+const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 interface IApiNews {
   /**
