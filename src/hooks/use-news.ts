@@ -1,5 +1,5 @@
 import { useLocation, useHistory } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { NewsStoreContext } from '../stores/news-store';
 import { NEWS_ROUTE } from '../pages/routes';
 
@@ -15,6 +15,12 @@ export const useNews = () => {
 
     history.push(`${NEWS_ROUTE}?category=${category}`);
   };
+
+  useEffect(() => {
+    if (!isLoading && Boolean(search) && !news.length) {
+      history.push(NEWS_ROUTE);
+    }
+  }, [history, isLoading, search, news.length]);
 
   return {
     /**

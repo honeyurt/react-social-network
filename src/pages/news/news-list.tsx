@@ -1,6 +1,7 @@
 import React from 'react';
+import format from 'date-fns/format';
+import { Articles } from '../../types/news/articles';
 import styles from './styles.module.css';
-import { Articles } from '../../../../types/news/articles';
 
 type NewsListProps = {
   /**
@@ -28,8 +29,7 @@ export const NewsList = ({ news, errorMessage }: NewsListProps) => {
             <img src={urlToImage} alt="newsPhoto" className={styles.image} />
             <div className={styles.topDescription}>
               <div className={styles.text}>{author ?? 'Unknown'}</div>
-              {/* TODO: rebuild date ? */}
-              <div className={styles.text}>{new Date(publishedAt).toDateString()}</div>
+              <div className={styles.text}>{format(new Date(publishedAt), 'PPp')}</div>
             </div>
           </div>
           <div className={styles.itemBottom}>
