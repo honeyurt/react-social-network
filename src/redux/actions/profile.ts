@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { instance } from '../../API/api';
+import { instance } from '../../api/api';
 import { ProfileAction, ProfileActionTypes, ProfileType } from '../../types/profile';
 
 export const getUserProfile = (userId: string) => async (dispatch: Dispatch<ProfileAction>) => {

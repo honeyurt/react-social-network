@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { instance } from '../../API/api';
+import { instance } from '../../api/api';
 import { DialogsAction, DialogsActionTypes } from '../../types/dialogs';
 
 export const getDialgos = () => async (dispatch: Dispatch<DialogsAction>) => {

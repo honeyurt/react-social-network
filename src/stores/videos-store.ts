@@ -1,7 +1,7 @@
 import { action, observable, makeObservable, runInAction } from 'mobx';
 import { createContext } from 'react';
 import { VideosResponse } from '../types/videos/videos-response';
-import { apiVideos } from '../API/videos';
+import { apiVideos } from '../api/videos';
 import { AxiosResponse } from 'axios';
 
 class VideosStore {

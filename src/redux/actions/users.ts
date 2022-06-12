@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { instance } from '../../API/api';
+import { instance } from '../../api/api';
 import { UsersAction, UsersActionTypes } from '../../types/users';
 
 export const setUsers =

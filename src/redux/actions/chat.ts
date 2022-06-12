@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { ChatActionTypes, ChatMessagesType, ChatStatusType } from '../../types/chat';
-import { ChatAPI } from '../../API/chatAPI';
+import { ChatAPI } from '../../api/chatAPI';
 
 const getMessages = (messages: ChatMessagesType[]) => ({
   type: ChatActionTypes.GET_MESSAGES,

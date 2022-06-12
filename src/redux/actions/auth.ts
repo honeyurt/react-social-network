@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { instance } from '../../API/api';
+import { instance } from '../../api/api';
 import { AuthAction, AuthActionTypes } from '../../types/auth';
 
 export const setAuth = (

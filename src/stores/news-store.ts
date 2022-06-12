@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { action, observable, makeObservable, runInAction } from 'mobx';
 import { createContext } from 'react';
-import { apiNews } from '../API/news';
+import { apiNews } from '../api/news';
 import { Articles } from '../types/news/articles';
 import { NewsResponse } from '../types/news/news-response';
 
