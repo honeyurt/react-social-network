@@ -23,24 +23,9 @@ export const useVideos = () => {
   }, [history, isLoading, search, videos]);
 
   return {
-    /**
-     * Флаг, показыващий загрузились ли видео
-     */
     isLoading,
-
-    /**
-     * Флаг, показывающий есть ли query параметры
-     */
     hasQuery: Boolean(search),
-
-    /**
-     * Список видео
-     */
     videos,
-
-    /**
-     * Функция для получения видео по названию
-     */
     getVideosByTitle,
   };
 };

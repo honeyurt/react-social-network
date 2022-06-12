@@ -4,14 +4,7 @@ import { Articles } from '../../types/news/articles';
 import styles from './styles.module.css';
 
 type NewsListProps = {
-  /**
-   * Массив новостей
-   */
   news: Articles[];
-
-  /**
-   * Текст ошибки
-   */
   errorMessage?: string;
 };
 

@@ -5,9 +5,6 @@ const API_URL = 'https://newsapi.org/v2/top-headlines?';
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 interface IApiNews {
-  /**
-   * Получение списка новостей по категории
-   */
   getNewsByCategory(category: string): Promise<NewsResponse>;
 }
 

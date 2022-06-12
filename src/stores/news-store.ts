@@ -14,14 +14,8 @@ class NewsStore {
     });
   }
 
-  /**
-   * Список новостей
-   */
   news: Articles[] = [];
 
-  /**
-   * Текст ошибки с бэка
-   */
   errorMessage = '';
 
   getNews = async (category: string) => {

@@ -2,9 +2,6 @@ import React from 'react';
 import styles from './styles.module.css';
 
 type IconWrapperProps = {
-  /**
-   * Иконка
-   */
   children: React.ReactNode;
 };
 

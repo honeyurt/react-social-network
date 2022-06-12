@@ -5,9 +5,6 @@ import { Footer } from '../footer';
 import styles from './styles.module.css';
 
 type LayoutProps = {
-  /**
-   * Контент
-   */
   children: React.ReactNode;
 };
 

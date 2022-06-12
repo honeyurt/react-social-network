@@ -5,9 +5,6 @@ import { Video } from '../../types/videos/video';
 import styles from './styles.module.css';
 
 type VideosListProps = {
-  /**
-   * Список видео
-   */
   videos: Video[];
 };
 

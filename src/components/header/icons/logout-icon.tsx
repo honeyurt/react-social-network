@@ -1,9 +1,6 @@
 import React from 'react';
 
 type LogoutIconProps = {
-  /**
-   * cb при нажатие на иконку
-   */
   onClick: () => void;
 };
 

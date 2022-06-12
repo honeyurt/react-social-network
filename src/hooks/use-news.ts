@@ -27,29 +27,10 @@ export const useNews = () => {
   }, [history, isLoading, search, news.length, getNewsByCategory, category]);
 
   return {
-    /**
-     * Флаг, показыващий загрузились ли новости
-     */
     isLoading,
-
-    /**
-     * Флаг, показывающий есть ли query параметры
-     */
     hasQuery: Boolean(search),
-
-    /**
-     * Массив новостей
-     */
     news,
-
-    /**
-     * Функция для получения новостей
-     */
     getNewsByCategory,
-
-    /**
-     * Текст ошибки если есть
-     */
     errorMessage,
   };
 };

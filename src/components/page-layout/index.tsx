@@ -2,14 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 type PageLayoutProps = {
-  /**
-   * Контент
-   */
   children: React.ReactNode;
-
-  /**
-   * Заголовок страницы
-   */
   title: string;
 };
 

@@ -12,9 +12,6 @@ class VideosStore {
     });
   }
 
-  /**
-   * Объект с данными и списком видео
-   */
   videos: null | VideosResponse = null;
 
   getVideos = async (title: string) => {

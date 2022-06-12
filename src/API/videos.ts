@@ -9,9 +9,6 @@ const API_KEY = process.env.REACT_APP_YOTUBE_API_KEY;
 const MAX = 10;
 
 interface IApiVideos {
-  /**
-   * Получение видео
-   */
   getVideos(title: string): Promise<AxiosResponse>;
 }
 
