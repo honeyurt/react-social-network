@@ -20,7 +20,9 @@ export const App = () => {
 
   return (
     <div className={styles.app}>
-      <Layout>{PagesRouter()}</Layout>
+      <Layout>
+        <PagesRouter />
+      </Layout>
     </div>
   );
 };
