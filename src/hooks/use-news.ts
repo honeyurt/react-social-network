@@ -1,5 +1,5 @@
+import { useState, useContext, useEffect, useCallback } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import { useState, useContext, useEffect } from 'react';
 import { NewsStoreContext } from '../stores/news-store';
 import { NEWS_ROUTE } from '../pages/routes';
 
@@ -8,19 +8,23 @@ export const useNews = () => {
   const { getNews, news, errorMessage } = useContext(NewsStoreContext);
   const { search } = useLocation();
   const history = useHistory();
+  const category = search.split('=').slice(1).join('');
 
-  const getNewsByCategory = (category: string) => {
-    setIsLoading(true);
-    getNews(category).finally(() => setIsLoading(false));
+  const getNewsByCategory = useCallback(
+    (category: string) => {
+      setIsLoading(true);
+      getNews(category).finally(() => setIsLoading(false));
 
-    history.push(`${NEWS_ROUTE}?category=${category}`);
-  };
+      history.push(`${NEWS_ROUTE}?category=${category}`);
+    },
+    [getNews, history],
+  );
 
   useEffect(() => {
     if (!isLoading && Boolean(search) && !news.length) {
-      history.push(NEWS_ROUTE);
+      getNewsByCategory(category);
     }
-  }, [history, isLoading, search, news.length]);
+  }, [history, isLoading, search, news.length, getNewsByCategory, category]);
 
   return {
     /**

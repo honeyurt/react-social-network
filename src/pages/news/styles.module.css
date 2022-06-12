@@ -67,3 +67,7 @@
 .link {
   font-size: 14px;
 }
+
+.loader {
+  justify-content: center;
+}

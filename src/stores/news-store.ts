@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { action, observable, makeObservable, runInAction } from 'mobx';
 import { createContext } from 'react';
 import { apiNews } from '../API/news';
@@ -28,9 +29,11 @@ class NewsStore {
 
     try {
       response = await apiNews.getNewsByCategory(category);
-      // TODO: FIXME
-    } catch (error: any) {
-      this.errorMessage = error.response.data.message;
+    } catch (err) {
+      const error = err as AxiosError;
+      if (error.response) {
+        this.errorMessage = error.response.data.message;
+      }
     } finally {
       runInAction(() => {
         if (response) {

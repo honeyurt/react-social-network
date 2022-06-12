@@ -4,17 +4,13 @@ import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { NewsList } from './news-list';
 import { PageLayout } from '../../components/page-layout';
 import { Button } from '../../components/button';
+import { Circles } from 'react-loader-spinner';
 import styles from './styles.module.css';
 
 const CATEGORIES = ['Business', 'Science', 'Sports', 'Technology'];
 
 const NewsPage = () => {
   const { isLoading, getNewsByCategory, news, errorMessage, hasQuery } = useNews();
-
-  // TODO: add spinner ?
-  if (isLoading) {
-    return <div>loading</div>;
-  }
 
   return (
     <PageLayout title="News">
@@ -25,7 +21,8 @@ const NewsPage = () => {
           </Button>
         ))}
       </div>
-      {hasQuery && <NewsList news={news} errorMessage={errorMessage} />}
+      {isLoading && <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />}
+      {hasQuery && !isLoading && <NewsList news={news} errorMessage={errorMessage} />}
     </PageLayout>
   );
 };
