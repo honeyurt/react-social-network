@@ -15,10 +15,10 @@ class VideosStore {
   /**
    * Объект с данными и списком видео
    */
-  videos = {} as VideosResponse;
+  videos: null | VideosResponse = null;
 
   getVideos = async (title: string) => {
-    let response = {} as AxiosResponse;
+    let response: AxiosResponse;
 
     try {
       response = await apiVideos.getVideos(title);

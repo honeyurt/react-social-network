@@ -4,17 +4,12 @@ import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { Button } from '../../components/button';
 import { PageLayout } from '../../components/page-layout';
 import { VideosList } from './videos-list';
+import { Circles } from 'react-loader-spinner';
 import styles from './styles.module.css';
 
 const VideosPage = () => {
   const [input, setInput] = useState('');
   const { isLoading, getVideosByTitle, videos, hasQuery } = useVideos();
-  const hasVideos = Boolean(videos?.items);
-
-  // TODO: add spinner
-  if (isLoading) {
-    return <div>loading..</div>;
-  }
 
   return (
     <PageLayout title="Videos">
@@ -32,7 +27,8 @@ const VideosPage = () => {
           Search
         </Button>
       </div>
-      {hasQuery && hasVideos && <VideosList videos={videos.items} />}
+      {isLoading && <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />}
+      {hasQuery && videos && <VideosList videos={videos.items} />}
     </PageLayout>
   );
 };
