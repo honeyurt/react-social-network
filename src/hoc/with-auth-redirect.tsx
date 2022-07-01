@@ -1,12 +1,11 @@
 import React, { ComponentType } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers';
+import { useAuth } from '../hooks/use-auth';
 
 export const withAuthRedirect = (WrappedComponent: ComponentType) => () => {
-  const { isAuth } = useSelector((state: RootState) => state.auth);
+  const { authData } = useAuth();
 
-  if (!isAuth) return <Redirect to="/login" />;
+  if (!authData) return <Redirect to="/login" />;
 
   return <WrappedComponent />;
 };

@@ -7,8 +7,9 @@ import { GetMeResponse } from '../types/auth/get-me-response';
 class AuthStore {
   constructor() {
     makeObservable(this, {
-      authData: observable.ref,
+      authData: observable,
       getMe: action,
+      getLogout: action,
     });
   }
 
@@ -27,6 +28,16 @@ class AuthStore {
         this.authData = data;
       });
     }
+
+    return response;
+  };
+
+  getLogout = async () => {
+    await apiAuth.getLogout();
+
+    runInAction(() => {
+      this.authData = null;
+    });
   };
 }
 

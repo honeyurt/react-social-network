@@ -1,38 +1,33 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogout } from '../../redux/actions/auth';
-import { RootState } from '../../redux/reducers';
 import { Link } from 'react-router-dom';
 import { LogoutIcon } from './icons/logout-icon';
+import { useAuth } from '../../hooks/use-auth';
 import Logo from './images/header-logo.png';
 import styles from './styles.module.css';
 
 export const Header = () => {
-  const dispatch = useDispatch();
-  const { isAuth, login } = useSelector((state: RootState) => state.auth);
+  const { authData, getLogout } = useAuth();
   const history = useHistory();
 
-  const onLogoutHandler = () => {
-    dispatch(setLogout());
-  };
-
-  const onLoginHandler = () => {
-    history.push('/login');
-  };
+  const goToLoginPage = () => history.push('/login');
 
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.link}>
         <img src={Logo} alt="Logo" className={styles.image} />
       </Link>
-      {isAuth ? (
+      {authData?.login ? (
         <div className={styles.headerLink}>
-          <div className={styles.greeting}>Hello, {login}</div>
-          <LogoutIcon onClick={onLogoutHandler} />
+          <div className={styles.greeting}>Hello, {authData.login}</div>
+          <LogoutIcon
+            onClick={() => {
+              getLogout().then(() => goToLoginPage());
+            }}
+          />
         </div>
       ) : (
-        <div className={styles.headerLink} onClick={onLoginHandler}>
+        <div className={styles.headerLink} onClick={goToLoginPage}>
           Login
         </div>
       )}

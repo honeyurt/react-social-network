@@ -9,7 +9,7 @@ import styles from './app.module.css';
 
 export const App = observer(() => {
   const dispatch = useDispatch();
-  const { authData } = useAuth();
+  const { authData, loaded } = useAuth();
 
   useEffect(() => {
     if (authData?.id) {
@@ -17,7 +17,7 @@ export const App = observer(() => {
     }
   }, [authData, dispatch]);
 
-  if (!authData) return <div>Loading..</div>;
+  if (!loaded) return <div>Loading..</div>;
 
   return (
     <div className={styles.app}>
