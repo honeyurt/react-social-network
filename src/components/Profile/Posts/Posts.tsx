@@ -19,7 +19,6 @@ const Posts = () => {
 
   const onSubmit = (data: IFormInputs) => {
     const id = Math.random();
-    console.log(id);
     dispatch(addPost(id, data.text));
 
     form.reset();

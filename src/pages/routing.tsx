@@ -9,9 +9,8 @@ import Settings from '../components/Settings/Settings';
 import Users from '../components/Users/Users';
 import { Home } from './home';
 import { NewsPageView } from './news';
-import { VideosPageView } from './videos';
 import { NotFound } from './not-found';
-import { NEWS_ROUTE, VIDEOS_ROUTE } from './routes';
+import { NEWS_ROUTE } from './routes';
 
 export const PagesRouter = () => (
   <Switch>
@@ -22,7 +21,6 @@ export const PagesRouter = () => (
     <Route exact path="/dialog-create" component={StartMessaging} />
     <Route exact path="/chat" component={Chat} />
     <Route exact path="/users/" component={Users} />
-    <Route exact path={VIDEOS_ROUTE} component={VideosPageView} />
     <Route exact path="/settings" component={Settings} />
     <Route exact path="/login" component={Login} />
     <Route exact path="*" component={NotFound} />

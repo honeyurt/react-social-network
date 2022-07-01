@@ -3,7 +3,6 @@ import { NewsIcon } from './icons/news-icon';
 import { MessengerIcon } from './icons/messenger-icon';
 import { ChatIcon } from './icons/chat-icon';
 import { UsersIcon } from './icons/users-icon';
-import { VideosIcon } from './icons/videos-icon';
 import { SettingsIcon } from './icons/settings-icon';
 
 export const NAVBAR_LINKS = [
@@ -32,11 +31,6 @@ export const NAVBAR_LINKS = [
     to: '/users',
     title: 'Users',
     icon: UsersIcon,
-  },
-  {
-    to: '/video',
-    title: 'Videos',
-    icon: VideosIcon,
   },
   {
     to: '/settings',
