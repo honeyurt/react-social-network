@@ -6,7 +6,6 @@ import { useAuth } from '../../hooks/use-auth';
 
 export const Home = observer(() => {
   const { authData } = useAuth();
-  console.log(authData);
 
   return (
     <h1>
