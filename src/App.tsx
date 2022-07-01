@@ -1,22 +1,23 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './redux/reducers';
-import { init } from './redux/actions/init';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react';
+import { useDispatch } from 'react-redux';
 import { getNewMessagesCount } from './redux/actions/dialogs';
 import { Layout } from './components/layout';
 import { PagesRouter } from './pages/routing';
+import { useAuth } from './hooks/use-auth';
 import styles from './app.module.css';
 
-export const App = () => {
+export const App = observer(() => {
   const dispatch = useDispatch();
-  const { initialized } = useSelector((state: RootState) => state.init);
+  const { authData } = useAuth();
 
-  React.useEffect(() => {
-    dispatch(init());
-    dispatch(getNewMessagesCount());
-  }, [dispatch]);
+  useEffect(() => {
+    if (authData?.id) {
+      dispatch(getNewMessagesCount());
+    }
+  }, [authData, dispatch]);
 
-  if (!initialized) return <div>Loading..</div>;
+  if (!authData) return <div>Loading..</div>;
 
   return (
     <div className={styles.app}>
@@ -25,4 +26,4 @@ export const App = () => {
       </Layout>
     </div>
   );
-};
+});
