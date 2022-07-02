@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 
 const CATEGORIES = ['Business', 'Science', 'Sports', 'Technology'];
 
-const NewsPage = () => {
+const NewsPageView = () => {
   const { isLoading, getNewsByCategory, news, errorMessage, hasQuery } = useNews();
 
   return (
@@ -27,4 +27,4 @@ const NewsPage = () => {
   );
 };
 
-export const NewsPageView = withAuthRedirect(NewsPage);
+export const NewsPage = withAuthRedirect(NewsPageView);

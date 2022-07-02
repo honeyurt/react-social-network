@@ -4,7 +4,7 @@ import { useAuth } from '../../hooks/use-auth';
 
 // TODO: rebuild this page
 
-export const Home = observer(() => {
+export const HomePage = observer(() => {
   const { authData } = useAuth();
 
   return (

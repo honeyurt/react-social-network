@@ -6,17 +6,17 @@ import StartMessaging from '../components/Messenger/Messages/StartMessaging/Star
 import Profile from '../components/Profile/Profile';
 import Settings from '../components/Settings/Settings';
 import Users from '../components/Users/Users';
-import { Home } from './home';
+import { HomePage } from './home';
 import { LoginPage } from './login';
-import { NewsPageView } from './news';
+import { NewsPage } from './news';
 import { NotFound } from './not-found';
-import { NEWS_ROUTE, LOGIN_ROUTE } from './routes';
+import { ROOT_ROUTE, NEWS_ROUTE, LOGIN_ROUTE } from './routes';
 
 export const PagesRouter = () => (
   <Switch>
-    <Route exact path="/" component={Home} />
+    <Route exact path={ROOT_ROUTE} component={HomePage} />
     <Route exact path="/profile/:userId?" component={Profile} />
-    <Route exact path={NEWS_ROUTE} component={NewsPageView} />
+    <Route exact path={NEWS_ROUTE} component={NewsPage} />
     <Route exact path="/dialogs/:userId?/:messages?" component={Dialogs} />
     <Route exact path="/dialog-create" component={StartMessaging} />
     <Route exact path="/chat" component={Chat} />
