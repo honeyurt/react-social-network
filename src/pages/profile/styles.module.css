@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  margin: 0 15px;
+}
+
+.profileImage img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  border: 3px solid gray;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.profileName {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.profileStatus {
+  font-style: italic;
+  color: rgb(122, 122, 122);
+}
+
+.profileJob span,
+.profileSkills span {
+  text-decoration: underline;
+}
+
+.profileContacts a:hover {
+  opacity: 0.5;
+}
+
+.profileContacts {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.loader {
+  justify-content: center;
+}
