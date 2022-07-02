@@ -1,6 +1,6 @@
 import { Data } from './data';
 
-export type GetMeResponse = {
+export type AuthResponse = {
   data: {
     data: Data;
   };

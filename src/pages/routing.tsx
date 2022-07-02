@@ -1,16 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Chat from '../components/Chat/Chat';
-import Login from '../components/Login/Login';
 import Dialogs from '../components/Messenger/Dialogs';
 import StartMessaging from '../components/Messenger/Messages/StartMessaging/StartMessaging';
 import Profile from '../components/Profile/Profile';
 import Settings from '../components/Settings/Settings';
 import Users from '../components/Users/Users';
 import { Home } from './home';
+import { LoginPage } from './login';
 import { NewsPageView } from './news';
 import { NotFound } from './not-found';
-import { NEWS_ROUTE } from './routes';
+import { NEWS_ROUTE, LOGIN_ROUTE } from './routes';
 
 export const PagesRouter = () => (
   <Switch>
@@ -22,7 +22,7 @@ export const PagesRouter = () => (
     <Route exact path="/chat" component={Chat} />
     <Route exact path="/users/" component={Users} />
     <Route exact path="/settings" component={Settings} />
-    <Route exact path="/login" component={Login} />
+    <Route exact path={LOGIN_ROUTE} component={LoginPage} />
     <Route exact path="*" component={NotFound} />
   </Switch>
 );

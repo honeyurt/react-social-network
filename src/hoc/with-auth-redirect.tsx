@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/use-auth';
 export const withAuthRedirect = (WrappedComponent: ComponentType) => () => {
   const { authData } = useAuth();
 
-  if (!authData) return <Redirect to="/login" />;
+  if (!authData?.id) return <Redirect to="/login" />;
 
   return <WrappedComponent />;
 };
