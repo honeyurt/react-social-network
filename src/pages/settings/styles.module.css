@@ -1,4 +1,4 @@
-.settings__photo {
+.settingsPhoto {
   display: flex;
   justify-content: space-around;
   margin-top: 30px;
@@ -6,74 +6,74 @@
   border-bottom: 1px solid rgb(115, 185, 250);
 }
 
-.photo__left {
+.photoLeft {
   display: flex;
   flex-direction: column;
   padding-right: 10px;
 }
 
-.photo__left span {
+.photoLeft span {
   margin-top: 10px;
   font-size: 14px;
   color: gray;
 }
 
-.photo__left img {
+.photoLeft img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 10px solid white;
 }
 
-.photo__right {
+.photoRight {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.photo__right input {
+.photoRight input {
   display: none;
 }
 
-.file_upload {
+.photoRight button {
+  margin-top: 10px;
+}
+
+.fileUpload {
   border: 1px solid #ccc;
   display: inline-block;
   cursor: pointer;
   min-width: 180px;
 }
 
-.file_upload svg {
+.fileUpload svg {
   padding-top: 3px;
 }
 
-.photo__right button {
-  margin-top: 10px;
-}
-
-.settings__about {
+.settingsAbout {
   margin-top: 30px;
 }
 
-.about__form {
+.aboutForm {
   display: flex;
   justify-content: center;
   text-align: left;
 }
 
-.about__form h3 {
+.aboutForm h3 {
   margin-bottom: 15px;
   text-align: center;
 }
 
-.about__form h3:not(:first-child) {
+.aboutForm h3:not(:first-child) {
   margin-top: 20px;
 }
 
-.about__form label {
+.aboutForm label {
   font-weight: 700;
 }
 
-.about__form input {
+.aboutForm input {
   margin-bottom: 10px;
   height: 30px;
   padding-left: 5px;
@@ -83,26 +83,40 @@
   border: none;
 }
 
-.about__form form {
+.aboutForm form {
   width: 360px;
   display: flex;
   flex-direction: column;
 }
 
-.about__confirm {
+.aboutConfirm {
   margin: 20px 0 10px 0;
   text-align: center;
 }
 
-.about__confirm button {
+.aboutConfirm button {
   width: 180px;
   background: rgb(140 204 169);
   border: none;
 }
 
-.settings__saved {
+.settingsSaved {
   text-align: center;
   margin: 10px 0 20px 0;
   color: #27bd27;
   font-weight: 800;
+}
+
+.checkbox {
+  display: flex;
+  align-self: flex-start;
+}
+
+.loader {
+  justify-content: center;
+}
+
+.upload {
+  justify-content: center;
+  margin-top: 20px;
 }

@@ -1,7 +1,12 @@
 import { action, observable, makeObservable, runInAction } from 'mobx';
 import { createContext } from 'react';
 import { apiProfile } from '../api/profile';
-import { Profile, GetProfileResponse, GetStatusResponse } from '../types/profile/';
+import {
+  Profile,
+  GetProfileResponse,
+  GetStatusResponse,
+  UploadPhotoResponse,
+} from '../types/profile/';
 
 class ProfileStore {
   constructor() {
@@ -10,6 +15,9 @@ class ProfileStore {
       status: observable,
       getProfile: action,
       getStatus: action,
+      uploadPhoto: action,
+      updateStatus: action,
+      updateProfile: action,
     });
   }
 
@@ -47,6 +55,25 @@ class ProfileStore {
       });
     }
   };
+
+  uploadPhoto = async (image: File) => {
+    let response: UploadPhotoResponse;
+
+    try {
+      response = await apiProfile.uploadPhoto(image);
+    } finally {
+      runInAction(() => {
+        if (response && this.profile) {
+          const { data } = response;
+          this.profile.photos = data.data.photos;
+        }
+      });
+    }
+  };
+
+  updateStatus = (status: string) => apiProfile.updateSatus(status);
+
+  updateProfile = (body: Profile) => apiProfile.updateProfile(body);
 }
 
 const context = createContext(new ProfileStore());
