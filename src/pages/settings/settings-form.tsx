@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Circles } from 'react-loader-spinner';
 import { Button } from '../../components/button';
 import { useProfile } from '../../hooks/use-profile';
 import { Profile } from '../../types/profile/';
@@ -21,10 +22,12 @@ export const SettingsForm = ({ profile, status }: SettingsFormProps) => {
   const [twitter, setTwitter] = useState('');
   const [instagram, setInstagram] = useState('');
   const [github, setGithub] = useState('');
+  const [loading, setLoading] = useState(false);
   const { updateProfile, updateStatus } = useProfile();
 
   const handleSave = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    setLoading(true);
 
     const objData: Profile = {
       userId: profile.userId,
@@ -49,11 +52,15 @@ export const SettingsForm = ({ profile, status }: SettingsFormProps) => {
     };
 
     if (profileStatus) {
-      Promise.all([updateProfile(objData), updateStatus(profileStatus)]).then(() =>
-        setIsSaved(true),
-      );
+      Promise.all([updateProfile(objData), updateStatus(profileStatus)]).then(() => {
+        setLoading(false);
+        setIsSaved(true);
+      });
     } else {
-      Promise.all([updateProfile(objData)]).then(() => setIsSaved(true));
+      Promise.all([updateProfile(objData)]).then(() => {
+        setLoading(false);
+        setIsSaved(true);
+      });
     }
   };
 
@@ -90,7 +97,7 @@ export const SettingsForm = ({ profile, status }: SettingsFormProps) => {
           className={styles.checkbox}
           type="checkbox"
           id="lookingForAJob"
-          defaultChecked={profile.lookingForAJob}
+          checked={lookingForAJob}
           onChange={(e) => setLookingForAJob(e.target.checked)}
         />
 
@@ -142,6 +149,9 @@ export const SettingsForm = ({ profile, status }: SettingsFormProps) => {
         </div>
 
         <div className={styles.settingsSaved}>
+          {loading && (
+            <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />
+          )}
           {isSaved && <p>Settings saved successfully &#10003;</p>}
         </div>
       </form>
