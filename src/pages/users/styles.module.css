@@ -2,14 +2,14 @@
   margin: 10px 0 20px 0;
 }
 
-.users__search {
+.usersSearch {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 15px;
 }
 
-.users__search form input {
+.usersSearch form input {
   height: 29px;
   padding: 0 5px;
   border-radius: 4px;
@@ -19,11 +19,11 @@
   color: #fff;
 }
 
-.users__search form input::placeholder {
+.usersSearch form input::placeholder {
   color: #fff;
 }
 
-.users__search form select {
+.usersSearch form select {
   margin-right: 10px;
   height: 29px;
   color: #fff;
@@ -32,19 +32,16 @@
   border-radius: 4px;
 }
 
-.users__search form button {
+.usersSearch form button {
   border: 1px solid #cdc9c9;
 }
 
-.user__item {
-  display: flex;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  border-top: 1px solid rgb(115, 185, 250);
-}
-
-.user__notFound {
+.userNotFound {
   font-size: 24px;
   font-weight: 700;
   color: #f96969;
+}
+
+.loader {
+  justify-content: center;
 }

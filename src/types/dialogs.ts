@@ -1,4 +1,4 @@
-import { ProfilePhotosType } from './profile';
+import { ProfilePhoto } from './profile/profile-photo';
 
 export type DialogListItemType = {
   id: string;
@@ -24,7 +24,7 @@ type DialogsType = {
   lastDialogActivityDate: Date;
   lastUserActivityDate: Date;
   newMessagesCount: number;
-  photos: ProfilePhotosType;
+  photos: ProfilePhoto;
 };
 
 export interface DialogsState {

@@ -1,22 +1,22 @@
-import React from 'react';
-import { Button } from '../../button';
-import styles from './Paginator.module.css';
+import React, { useEffect } from 'react';
+import { Button } from '../button';
+import styles from './styles.module.css';
 
-interface Props {
+type PaginationProps = {
   totalUsersCount: number;
-  pageSize: number;
-  currentPage: number;
-  onPageClickHandler: (page: number) => void;
+  pageSize?: number;
+  handlePageClick: (pageNumber: number) => void;
   portionSize?: number;
-}
+  currentPage: number;
+};
 
-const Paginator: React.FC<Props> = ({
-  pageSize = 10,
+export const Pagination = ({
   totalUsersCount,
-  currentPage,
-  onPageClickHandler,
+  pageSize = 10,
+  handlePageClick,
   portionSize = 10,
-}) => {
+  currentPage,
+}: PaginationProps) => {
   const pagesCount = Math.ceil(totalUsersCount / pageSize);
   const pages: number[] = [];
 
@@ -30,7 +30,7 @@ const Paginator: React.FC<Props> = ({
   const leftNumber = (portionNumber - 1) * portionSize + 1;
   const rightNumber = portionNumber * portionSize;
 
-  React.useEffect(() => {
+  useEffect(() => {
     setPortionNumber(Math.ceil(currentPage / portionSize));
   }, [currentPage, portionSize]);
 
@@ -41,20 +41,19 @@ const Paginator: React.FC<Props> = ({
       )}
 
       {pages
-        .filter((page) => page >= leftNumber && page <= rightNumber)
-        .map((page) => (
+        .filter((pageNumber) => pageNumber >= leftNumber && pageNumber <= rightNumber)
+        .map((pageNumber) => (
           <span
-            key={page}
-            className={currentPage === page ? styles.selected : styles.notSelected}
-            onClick={onPageClickHandler.bind(null, page)}>
-            {page}
+            key={pageNumber}
+            className={currentPage === pageNumber ? styles.selected : styles.notSelected}
+            onClick={() => handlePageClick(pageNumber)}>
+            {pageNumber}
           </span>
         ))}
+
       {portionCount > portionNumber && (
         <Button onClick={() => setPortionNumber(portionNumber + 1)}>{'>>>'}</Button>
       )}
     </div>
   );
 };
-
-export default Paginator;

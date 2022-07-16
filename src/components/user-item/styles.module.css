@@ -1,11 +1,11 @@
-.user__item {
+.userItem {
   display: flex;
   margin-bottom: 10px;
   padding-top: 10px;
   border-top: 1px solid rgb(115, 185, 250);
 }
 
-.user__left {
+.userLeft {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,22 +13,22 @@
   margin-left: 10px;
 }
 
-.user__left img {
+.userLeft img {
   border-radius: 50%;
   width: 100px;
   height: 100px;
   margin-bottom: 5px;
 }
 
-.user__left img:hover {
+.userLeft img:hover {
   opacity: 0.5;
 }
 
-.user__right {
+.userRight {
   text-align: left;
 }
 
-.user__right nav {
+.userRight nav {
   font-size: 16px;
   font-weight: 700;
   color: #216999;
@@ -36,7 +36,7 @@
   margin-top: 5px;
 }
 
-.user__right p {
+.userRight p {
   color: #216999;
   font-weight: 400;
   font-size: 14px;
