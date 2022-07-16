@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/reducers';
+import { observer } from 'mobx-react';
+import { useDialogs } from '../../hooks/use-dialogs';
 import { NavLink } from 'react-router-dom';
 import { NAVBAR_LINKS } from './navbar-links';
 import styles from './styles.module.css';
 
-export const Navbar = () => {
-  const { newMessagesCount } = useSelector((state: RootState) => state.dialogs);
+export const Navbar = observer(() => {
+  const { newMessagesCount } = useDialogs();
   const hasMessages = newMessagesCount > 0;
 
   const renderMessagesCount = (count: Number) => (count > 9 ? '9+' : count.toString());
@@ -30,4 +30,4 @@ export const Navbar = () => {
       </div>
     </section>
   );
-};
+});

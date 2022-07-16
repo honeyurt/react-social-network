@@ -1,9 +1,9 @@
-.messages__form {
+.messagesForm {
   margin-top: 15px;
   padding: 0 10px;
 }
 
-.messages__form input {
+.messagesForm input {
   margin-right: 10px;
   height: 29px;
   width: 300px;

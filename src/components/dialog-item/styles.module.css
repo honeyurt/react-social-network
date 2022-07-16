@@ -1,36 +1,41 @@
-.dialog__item {
+.dialogItem {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-.dialog__item:hover {
+.dialogItem:hover {
   background-color: rgb(199 218 235);
+  cursor: pointer;
 }
 
-.dialog__item a {
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.dialogItem div {
   display: flex;
   align-items: center;
 }
 
-.dialog__item a img {
+.dialogItem div img {
   margin: 0 20px 0 30px;
   width: 70px;
   height: 70px;
   border-radius: 50%;
 }
 
-.dialog__item a p {
+.dialogItem div p {
   margin-right: 50px;
   color: rgb(2, 82, 134);
   font-size: 15px;
   font-weight: 600;
 }
 
-.image__active {
+.imageActive {
   border: 3px solid #37c3f9;
-}
-
-.item__active {
-  background-color: rgb(199 218 235);
 }

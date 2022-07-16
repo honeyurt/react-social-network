@@ -1,31 +1,56 @@
-.messages__item {
+.wrapper {
+  position: relative;
+}
+
+.wrapper svg {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  left: 20px;
+}
+
+.wrapper svg:hover {
+  cursor: pointer;
+}
+
+.content {
+  padding-top: 30px;
+}
+
+.messagesItem {
   display: flex;
   margin-top: 15px;
   width: 100%;
   padding: 0 10px 5px 10px;
 }
 
-.item__sender {
+.itemSender {
   display: flex;
   width: 10%;
   margin-right: 15px;
   font-weight: 700;
 }
 
-.item__message {
+.itemMessage {
   display: flex;
   width: 80%;
 }
 
-.item__date {
+.itemDate {
   font-weight: 300;
   font-size: 14px;
 }
 
-.item__notViewed {
+.itemNotViewed {
   margin-left: 10px;
   width: 7px;
   height: 7px;
   background-color: #3498db;
   border-radius: 50%;
+}
+
+
+.loader {
+  justify-content: center;
 }
