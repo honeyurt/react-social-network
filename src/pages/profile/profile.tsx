@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { FacebookIcon, TwitterIcon, GithubIcon, InstagramIcon } from './icons/';
 import { useProfile } from '../../hooks/use-profile';
 import { useAuth } from '../../hooks/use-auth';
-import { Circles } from 'react-loader-spinner';
+import { Spinner } from '../../components/spinner';
 import UserPhoto from '../../assets/images/user-photo.jpg';
 import styles from './styles.module.css';
 
@@ -28,7 +28,7 @@ export const Profile = observer(() => {
   }, [authData?.id, getProfile, getStatus, userId]);
 
   if (loading || !profile) {
-    return <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />;
+    return <Spinner />;
   }
 
   return (

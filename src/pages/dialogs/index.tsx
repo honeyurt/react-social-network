@@ -8,7 +8,7 @@ import { CreateDialogIcon } from './icons/create-dialog-icon';
 import { CREATE_DIALOG } from '../routes';
 import { DialogItem } from '../../components/dialog-item';
 import { Messages } from '../../components/messages';
-import { Circles } from 'react-loader-spinner';
+import { Spinner } from '../../components/spinner';
 import styles from './styles.module.css';
 
 type DialogsPageViewParams = {
@@ -26,7 +26,7 @@ const DialogsPageView = observer(() => {
   }, [getDialogs]);
 
   if (loading) {
-    return <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />;
+    return <Spinner />;
   }
 
   if (userId) {

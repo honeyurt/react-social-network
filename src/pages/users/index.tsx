@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { useUsers } from '../../hooks/user-users';
-import { Circles } from 'react-loader-spinner';
+import { Spinner } from '../../components/spinner';
 import { Button } from '../../components/button';
 import { UserItem } from '../../components/user-item';
 import { PageLayout } from '../../components/page-layout';
@@ -42,7 +42,7 @@ const UsersPageView = observer(() => {
   }, [currentPage, getUsers, loading]);
 
   if (loading) {
-    return <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />;
+    return <Spinner />;
   }
 
   return (

@@ -4,6 +4,7 @@ import { Layout } from './components/layout';
 import { PagesRouter } from './pages/routing';
 import { useAuth } from './hooks/use-auth';
 import { useDialogs } from './hooks/use-dialogs';
+import { Spinner } from './components/spinner';
 import styles from './app.module.css';
 
 export const App = observer(() => {
@@ -16,7 +17,9 @@ export const App = observer(() => {
     }
   }, [authData, getNewMessagesCount]);
 
-  if (!loaded) return <div>Loading..</div>;
+  if (!loaded) {
+    return <Spinner />;
+  }
 
   return (
     <div className={styles.app}>

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { useDialogs } from '../../hooks/use-dialogs';
-import { Circles } from 'react-loader-spinner';
 import { MessageForm } from '../message-form';
 import { ArrowIcon } from './arrow-icon';
 import { DIALOGS_ROUTE } from '../../pages/routes';
+import { Spinner } from '../spinner';
 import styles from './styles.module.css';
 
 type MessagesProps = {
@@ -32,7 +32,7 @@ export const Messages = observer(({ userId }: MessagesProps) => {
   }, [getMessagesByUserId, userId]);
 
   if (loading) {
-    return <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />;
+    return <Spinner />;
   }
 
   return (

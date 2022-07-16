@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Circles } from 'react-loader-spinner';
 import { Button } from '../../components/button';
+import { Spinner } from '../../components/spinner';
 import { useProfile } from '../../hooks/use-profile';
 import { Profile } from '../../types/profile/';
 import { isEmpty } from '../../utils/is-empty';
@@ -149,9 +149,7 @@ export const SettingsForm = ({ profile, status }: SettingsFormProps) => {
         </div>
 
         <div className={styles.settingsSaved}>
-          {loading && (
-            <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />
-          )}
+          {loading && <Spinner />}
           {isSaved && <p>Settings saved successfully &#10003;</p>}
         </div>
       </form>

@@ -112,10 +112,6 @@
   align-self: flex-start;
 }
 
-.loader {
-  justify-content: center;
-}
-
 .upload {
   justify-content: center;
   margin-top: 20px;

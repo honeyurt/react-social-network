@@ -4,8 +4,8 @@ import { withAuthRedirect } from '../../hoc/with-auth-redirect';
 import { useAuth } from '../../hooks/use-auth';
 import { useProfile } from '../../hooks/use-profile';
 import { PageLayout } from '../../components/page-layout';
-import { Circles } from 'react-loader-spinner';
 import { SettingsForm } from './settings-form';
+import { Spinner } from '../../components/spinner';
 import { UploadPhotoIcon } from './icons/upload-photo-icon';
 import UserPhoto from '../../assets/images/user-photo.jpg';
 import styles from './styles.module.css';
@@ -34,7 +34,7 @@ const SettingsPageView = observer(() => {
   }, [authData, authData?.id, getProfile, getStatus]);
 
   if (loading || !profile) {
-    return <Circles wrapperClass={styles.loader} color="#3498db" width={60} height={60} />;
+    return <Spinner />;
   }
 
   return (
@@ -50,7 +50,9 @@ const SettingsPageView = observer(() => {
           </label>
 
           {uploading && (
-            <Circles wrapperClass={styles.upload} color="#3498db" width={60} height={60} />
+            <div className={styles.upload}>
+              <Spinner />
+            </div>
           )}
 
           <input
