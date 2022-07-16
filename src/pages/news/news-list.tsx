@@ -1,6 +1,6 @@
 import React from 'react';
 import format from 'date-fns/format';
-import { Articles } from '../../types/news/articles';
+import { Articles } from '../../types/news';
 import styles from './styles.module.css';
 
 type NewsListProps = {
