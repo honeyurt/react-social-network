@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Chat from '../components/Chat/Chat';
 import { HomePage } from './home';
 import { LoginPage } from './login';
 import { NewsPage } from './news';
@@ -28,7 +27,6 @@ export const PagesRouter = () => (
     <Route exact path={NEWS_ROUTE} component={NewsPage} />
     <Route exact path={`${DIALOGS_ROUTE}/:userId?/:messages?`} component={DialogsPage} />
     <Route exact path={CREATE_DIALOG} component={DialogCreatePage} />
-    <Route exact path="/chat" component={Chat} />
     <Route exact path={USERS_ROUTE} component={UsersPage} />
     <Route exact path={SETTINGS_ROUTE} component={SettingsPage} />
     <Route exact path={LOGIN_ROUTE} component={LoginPage} />

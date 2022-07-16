@@ -1,7 +1,6 @@
 import { ProfileIcon } from './icons/profile-icon';
 import { NewsIcon } from './icons/news-icon';
 import { MessengerIcon } from './icons/messenger-icon';
-import { ChatIcon } from './icons/chat-icon';
 import { UsersIcon } from './icons/users-icon';
 import { SettingsIcon } from './icons/settings-icon';
 
@@ -21,11 +20,6 @@ export const NAVBAR_LINKS = [
     title: 'Messenger',
     icon: MessengerIcon,
     messenger: true,
-  },
-  {
-    to: '/chat',
-    title: 'Chat',
-    icon: ChatIcon,
   },
   {
     to: '/users',
